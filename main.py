@@ -6,7 +6,44 @@ from apiclient import discovery
 from httplib2 import Http
 from oauth2client import file, client, tools
 
-def auth():
+
+def calendarAuth():
+    authorization = auth('calendar')
+    createEvent(authorization)
+
+def driveAuth():
+    authorization = auth('drive')
+    createFile(authorization)
+
+#
+# DATE & TIME VARIABLES
+#
+eventSum = 'Dinner with friends'    #placeholder
+startDate = '2019-11-15'            #placeholder
+endDate = '2019-11-15'              #placeholder
+startTime = '19:00'                 #placeholder
+endTime = '22:00'                   #placeholder
+gmtOffset = '-7:00'                 # for GMT-7 or MDT
+
+    # TODO LIST:
+    #   - full string format: 'YYYY-MM-DD' + 'T' + 'HH:MM:SS'
+    #   - 'start' and 'end' variables are to be user-input from Django form
+    #   - 'Time' forms will autocorrect from single digit (eg. '9') to full length (eg. 09:00)
+    #   - 'Date' forms will be input as format requires until string parsing and reordering can be bothered
+    #   - for Google Calendar
+    #       - always add on another ':00' for 'seconds'
+    #       - add '12:00' if PM
+    #   - for Google Drive
+    #       - create new folder for events
+    #       - parse 'startDate' for month, and create new month folder as necessary
+    #       - create new files in Drive without having to keep them on local storage
+
+
+# 
+# NAME:     auth
+# PURPOSE:  Grants authorization tokens toward Google APIs 
+# 
+def auth(service):
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -26,18 +63,17 @@ def auth():
         with open('googleToken.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
-    CALENDAR = discovery.build('calendar', 'v3', http=creds.authorize(Http()))
-    DRIVE = discovery.build('drive', 'v3', http=creds.authorize(Http()))
+    return discovery.build(service, 'v3', http=creds.authorize(Http())))
 
 # 
 # NAME:     createEvent
 # PURPOSE:  Creates a Google Calendar event from user's input
 # 
-def createEvent():
+def createEvent(CALENDAR):
     EVENT = {
-        'summary': config.eventSum,
-        'start':  {'dateTime': config.startDate + 'T' + config.startTime + '%s' % config.gmtOffset},
-        'end':    {'dateTime': config.endDate + 'T' + config.endTime + '%s' % config.gmtOffset},
+        'summary': eventSum,
+        'start':  {'dateTime': startDate + 'T' + startTime + '%s' % gmtOffset},
+        'end':    {'dateTime': endDate + 'T' + endTime + '%s' % gmtOffset},
         'attendees': [
             #{'email': 'friend1@example.com'},
             #{'email': 'friend2@example.com'},
@@ -55,8 +91,6 @@ def createEvent():
         e['start']['dateTime'], e['end']['dateTime']))
 
 
-def createFolder():
+def createFolder(DRIVE):
 
-def createDocs():
-
-def uploadDocs():
+def createFiles(DRIVE):
