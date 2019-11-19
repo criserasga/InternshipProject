@@ -15,10 +15,16 @@ def driveAuth():
     authorization = auth('drive')
     createFile(authorization)
 
+
+# 
+# NAME VARIABLES
+# 
+eventName = 'Dinner with friends'   #placeholder
+folderId = None
+
 #
 # DATE & TIME VARIABLES
 #
-eventName = 'Dinner with friends'   #placeholder
 startDate = '2019-11-15'            #placeholder
 endDate = '2019-11-15'              #placeholder
 startTime = '19:00'                 #placeholder
@@ -101,6 +107,10 @@ def createFolder(DRIVE):
     'mimeType': 'application/vnd.google-apps.folder'
     }
     file = DRIVE.files().create(body=file_metadata, fields='id').execute()
-    #print 'Folder ID: %s' % file.get('id')
+    folderId = file.get('id')
 
-#def createFiles(DRIVE):
+def createFiles(DRIVE):
+    file_metadata = {
+        'name': eventName,
+        'parents': folderId
+    }

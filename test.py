@@ -1,4 +1,5 @@
 # This file is for tests ONLY!
+import main
 
 # Test auth() function
 # Expected Result: SUCCESS
