@@ -1,10 +1,10 @@
-import config
-import pickle
-import os
 from __future__ import print_function
 from apiclient import discovery
 from httplib2 import Http
 from oauth2client import file, client, tools
+import config
+import pickle
+import os
 
 
 def calendarAuth():
@@ -18,7 +18,7 @@ def driveAuth():
 #
 # DATE & TIME VARIABLES
 #
-eventSum = 'Dinner with friends'    #placeholder
+eventName = 'Dinner with friends'   #placeholder
 startDate = '2019-11-15'            #placeholder
 endDate = '2019-11-15'              #placeholder
 startTime = '19:00'                 #placeholder
@@ -63,7 +63,7 @@ def auth(service):
         with open('googleToken.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
-    return discovery.build(service, 'v3', http=creds.authorize(Http())))
+    return discovery.build(service, 'v3', http=creds.authorize(Http()))
 
 # 
 # NAME:     createEvent
@@ -71,7 +71,7 @@ def auth(service):
 # 
 def createEvent(CALENDAR):
     EVENT = {
-        'summary': eventSum,
+        'summary': eventName,
         'start':  {'dateTime': startDate + 'T' + startTime + '%s' % gmtOffset},
         'end':    {'dateTime': endDate + 'T' + endTime + '%s' % gmtOffset},
         'attendees': [
@@ -91,6 +91,16 @@ def createEvent(CALENDAR):
         e['start']['dateTime'], e['end']['dateTime']))
 
 
+# 
+# NAME:     createFolder
+# PURPOSE:  Creates a Google Drive folder from user's input
+# 
 def createFolder(DRIVE):
+    file_metadata = {
+    'name': eventName,
+    'mimeType': 'application/vnd.google-apps.folder'
+    }
+    file = DRIVE.files().create(body=file_metadata, fields='id').execute()
+    #print 'Folder ID: %s' % file.get('id')
 
-def createFiles(DRIVE):
+#def createFiles(DRIVE):
