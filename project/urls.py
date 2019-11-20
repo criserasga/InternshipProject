@@ -3,7 +3,7 @@ from project import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path("", views.log_message, name="log"),
+    path("", views.form, name="sales_sheet"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
