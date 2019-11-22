@@ -8,7 +8,8 @@ class EventForm(form.Form):
     event_type = forms.CharField(label='Event Type')
     event_sponsor = forms.BooleanField('Sponsorship', 
         help_text='Are we sponsors for this event?')
-    event_date = forms.DateField(label='Event Date')
+    event_date = forms.DateField(label='Event Date', 
+        input_formats=['%Y-%m-%d'], help_text='YYYY-MM-DD')
     event_time = forms.TimeField(label='Event Time')
     event_duration = forms.DurationField(label='Event Duration', 
         help_text='How long is the event running for?')
@@ -36,10 +37,11 @@ class ClientForm(form.Form):
 class NotesForm(form.Form):
     notes_sales = forms.CharField(label='Sales Rep', 
         help_text='Who made the sale?')
-    notes_invoice = forms.PositiveIntegerField(label='Estimate/Invoice Number')
+    notes_invoice = forms.IntegerField(label='Estimate/Invoice Number')
     notes_date = forms.DateField.auto_now
     notes_next = forms.CharField(label='Next Step', 
         help_text='What is the next step for this client?')
-    notes_notes = forms.TextField(label='Additional Notes')
+    notes_notes = forms.CharField(label='Additional Notes', 
+        widget=forms.Textarea)
 
 #class PackagesForm(form.Form)
