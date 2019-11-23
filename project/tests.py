@@ -1,4 +1,7 @@
-# This file is for tests ONLY!
+# 
+# This file is used for unit testing of individual functions
+# 
+
 import main
 
 # Test auth() function

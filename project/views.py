@@ -1,3 +1,7 @@
+# 
+# This file contains all webpage (views) render definitions
+# 
+
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.http import HttpResponse

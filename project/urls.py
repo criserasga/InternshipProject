@@ -1,3 +1,7 @@
+# 
+# This file contains all webpage URLs
+# 
+
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import views
