@@ -3,7 +3,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import views
 
 urlpatterns = [
-    path("", views.form, name="sales_sheet"),
+    path("", views.sales_sheet, name="sales_sheet"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
