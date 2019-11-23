@@ -5,7 +5,10 @@ from .forms import EventForm
 from .forms import ClientForm
 from .forms import NotesForm
 
-# TODO: figure out how to render multiple forms on one page under one submit button
+# TODO: 
+# - assign input data into MAIN.PY variables
+# - render multiple forms on one page 
+# - submit multiple forms under one submit button
 
 def sales_sheet(request):
     client_form = ClientForm(request.POST or None)
