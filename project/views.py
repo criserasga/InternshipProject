@@ -20,7 +20,7 @@ def sales_sheet(request):
     notes_form = NotesForm(request.POST or None)
 
     if request.method == "POST":
-        if event_form.is_valid():
+        if client_form.is_valid():
             return
     else:
-        return render(request, "project/form.html", {'event_form': event_form})
+        return render(request, "project/form.html", {'client_form': client_form})

@@ -5,8 +5,8 @@ Sales Sheet
 {% block content %}
 <form method="POST" class="log-form">
     {% csrf_token %}
-<!--    {{ client_form.as_p }} -->
-    {{ event_form.as_p }}
+    {{ client_form.as_p }}
+<!--    {{ event_form.as_p }} -->
 <!--    {{ notes_form.as_p }} -->
     <input type="submit" name="submit" value="Submit"/>
 </form>
