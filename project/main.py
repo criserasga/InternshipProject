@@ -34,15 +34,6 @@ gmtOffset = '-7:00'                 # for GMT-7 or MDT
     # TODO LIST:
     #   - full string format: 'YYYY-MM-DD' + 'T' + 'HH:MM:SS'
     #   - 'start' and 'end' variables are to be user-input from Django form
-    #   - 'Time' forms will autocorrect from single digit (eg. '9') to full length (eg. 09:00)
-    #   - 'Date' forms will be input as format requires until string parsing and reordering can be bothered
-    #   - for Google Calendar
-    #       - always add on another ':00' for 'seconds'
-    #       - add '12:00' if PM
-    #   - for Google Drive
-    #       - create new folder for events
-    #       - parse 'startDate' for month, and create new month folder as necessary
-    #       - create new files in Drive without having to keep them on local storage
 
 
 # 
@@ -70,47 +61,3 @@ def auth(service):
             pickle.dump(creds, token)
 
     return discovery.build(service, 'v3', http=creds.authorize(Http()))
-
-# 
-# NAME:     createEvent
-# PURPOSE:  Creates a Google Calendar event from user's input
-# 
-def createEvent(CALENDAR):
-    EVENT = {
-        'summary': eventName,
-        'start':  {'dateTime': startDate + 'T' + startTime + '%s' % gmtOffset},
-        'end':    {'dateTime': endDate + 'T' + endTime + '%s' % gmtOffset},
-        'attendees': [
-            #{'email': 'friend1@example.com'},
-            #{'email': 'friend2@example.com'},
-        ],
-    }
-
-    # The entire calendar build request
-    e = CALENDAR.events().insert(calendarId='primary',
-        sendNotifications=True, body=EVENT).execute()
-
-    # Check to see what it entered into the calendar
-    print('''*** %r event added:
-    Start: %s
-    End:   %s''' % (e['summary'].encode('utf-8'),
-        e['start']['dateTime'], e['end']['dateTime']))
-
-
-# 
-# NAME:     createFolder
-# PURPOSE:  Creates a Google Drive folder from user's input
-# 
-def createFolder(DRIVE):
-    file_metadata = {
-    'name': eventName,
-    'mimeType': 'application/vnd.google-apps.folder'
-    }
-    file = DRIVE.files().create(body=file_metadata, fields='id').execute()
-    folderId = file.get('id')
-
-def createFiles(DRIVE):
-    file_metadata = {
-        'name': eventName,
-        'parents': folderId
-    }

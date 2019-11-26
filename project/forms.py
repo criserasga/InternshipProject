@@ -1,6 +1,7 @@
 # 
-# These are all the forms used in the Sales Sheet
+# This file contains all forms used
 # 
+
 from django import forms
 
 class EventForm(forms.Form):
@@ -10,7 +11,8 @@ class EventForm(forms.Form):
         help_text='Are we sponsors for this event?')
     event_date = forms.DateField(label='Event Date', 
         input_formats=['%Y-%m-%d'], help_text='YYYY-MM-DD')
-    event_time = forms.TimeField(label='Event Time')
+    event_time = forms.TimeField(label='Event Time', 
+        input_formats=['%H:%M'], help_text='HH:MM')
     event_duration = forms.DurationField(label='Event Duration', 
         help_text='How long is the event running for?')
     event_setup = forms.TimeField(label='Earliest Setup Time', 
@@ -38,7 +40,8 @@ class NotesForm(forms.Form):
     notes_sales = forms.CharField(label='Sales Rep', 
         help_text='Who made the sale?')
     notes_invoice = forms.IntegerField(label='Estimate/Invoice Number')
-    notes_date = forms.DateField(label='Today\'s Date', input_formats=['%Y-%m-%d'])
+    notes_date = forms.DateField(label='Today\'s Date', 
+        input_formats=['%Y-%m-%d'])
     notes_next = forms.CharField(label='Next Step', 
         help_text='What is the next step for this client?')
     notes_notes = forms.CharField(label='Additional Notes', 
