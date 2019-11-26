@@ -37,7 +37,7 @@ def createFolder(DRIVE):
 # 
 def queueFiles(DRIVE, docType):
     temp_list = []
-    temp_str = main.eventName + ' ' + docType
+    temp_str = main.eventName + ' ' + docType + '.pdf'
     temp_list.append(temp_str)
     temp_list.append(mimeType)
     file_metadata = tuple(temp_list)
