@@ -3,9 +3,14 @@
 # 
 
 # TODO List:
-# - create new folder for events
-# - parse 'startDate' for month, and create new month folder as necessary
 # - create new files in Drive without having to keep them on local storage
+# - Files process
+#   - form data assigned to main.py variables
+#   - main.py variables to html page
+#   - html page to pdf
+#   - pdf to local storage temporary files
+#   - local storage temporary files to Drive
+#   - delete local storage temporary files
 
 # 
 # LOCAL VARIABLES:
