@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from .forms import EventForm
 from .forms import ClientForm
 from .forms import NotesForm
+from . import main
 
 # TODO: 
 # - assign input data into MAIN.PY variables
@@ -20,7 +21,7 @@ def sales_sheet(request):
     notes_form = NotesForm(request.POST or None)
 
     if request.method == "POST":
-        if client_form.is_valid():
+        if event_form.is_valid():
             return
     else:
-        return render(request, "project/form.html", {'client_form': client_form})
+        return render(request, "project/form.html", {'event_form': event_form})

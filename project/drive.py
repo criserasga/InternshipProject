@@ -7,8 +7,8 @@
 # - Files process
 #   - form data assigned to main.py variables
 #   - main.py variables to html page
-#   - html page to pdf
-#   - pdf to local storage temporary files
+#   - html page to txt/gdoc
+#   - txt/gdoc to local storage temporary files
 #   - local storage temporary files to Drive
 #   - delete local storage temporary files
 
@@ -37,7 +37,7 @@ def createFolder(DRIVE):
 # 
 def queueFiles(DRIVE, docType):
     temp_list = []
-    temp_str = main.eventName + ' ' + docType + '.pdf'
+    temp_str = main.eventName + ' ' + docType + '.txt'
     temp_list.append(temp_str)
     temp_list.append(mimeType)
     file_metadata = tuple(temp_list)
@@ -47,7 +47,7 @@ def queueFiles(DRIVE, docType):
 # NAME:     uploadFiles
 # PURPOSE:  Uploads files into their parent folder
 # 
-def moveFiles():
+def moveFiles(DRIVE):
     for filename, mimeType in file_queue:
     metadata = {
         'name': filename,
