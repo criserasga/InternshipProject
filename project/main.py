@@ -1,8 +1,7 @@
 from __future__ import print_function
 from apiclient import discovery
 from httplib2 import Http
-from oauth2client import file, client, tools
-import config
+from . import config
 import pickle
 import os
 

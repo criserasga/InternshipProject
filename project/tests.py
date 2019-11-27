@@ -2,7 +2,7 @@
 # This file is used for unit testing of individual functions
 # 
 
-import main
+from . import main
 
 # Test auth() function
 # Expected Result: SUCCESS
