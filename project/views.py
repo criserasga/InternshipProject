@@ -22,6 +22,10 @@ def sales_sheet(request):
 
     if request.method == "POST":
         if event_form.is_valid():
-            return
+            main.eventName = event_form.cleaned_data.get('event_name')
+            main.startDate = event_form.cleaned_data.get('event_date')
+            main.endDate = main.startDate
+            main.startTime = event_form.cleaned_data.get('event_time')
+            # main.endTime = 
     else:
-        return render(request, "project/form.html", {'event_form': event_form})
+        return render(request, "project/form.html", {'event_form': event_form}) 

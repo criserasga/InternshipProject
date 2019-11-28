@@ -19,7 +19,6 @@ def driveAuth():
 # NAME VARIABLES
 # 
 eventName = 'Dinner with friends'   #placeholder
-folderId = ''
 
 #
 # DATE & TIME VARIABLES

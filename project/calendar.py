@@ -2,6 +2,8 @@
 # This file contains all functions necessary for Google's Calendar API
 # 
 
+from . import main
+
 # TODO List:
 # - always add on another ':00' for 'seconds'
 # - add '12:00' if PM
@@ -13,8 +15,8 @@
 def createEvent(CALENDAR):
     EVENT = {
         'summary': eventName,
-        'start':  {'dateTime': startDate + 'T' + startTime + '%s' % gmtOffset},
-        'end':    {'dateTime': endDate + 'T' + endTime + '%s' % gmtOffset},
+        'start':  {'dateTime': main.startDate + 'T' + main.startTime + '%s' % main.gmtOffset},
+        'end':    {'dateTime': main.endDate + 'T' + main.endTime + '%s' % main.gmtOffset},
         'attendees': [
             #{'email': 'friend1@example.com'},
             #{'email': 'friend2@example.com'},
