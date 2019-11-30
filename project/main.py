@@ -1,22 +1,30 @@
 from __future__ import print_function
 from apiclient import discovery
 from httplib2 import Http
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
 from . import config
+from .drive import createFolder
+from .drive import queueFile
+from .drive import moveFiles
+from .calendar import createEvent
+from . import calendar
 import pickle
 import os
 
 
-def calendarAuth():
+def calendar():
     authorization = auth('calendar')
     createEvent(authorization)
 
-def driveAuth():
+def drive():
     authorization = auth('drive')
     createFolder(authorization)
     queueFile(authorization, 'Sales Sheet')
-    queueFile(authorization, 'Event Sheet')
-    queueFile(authorization, 'Pack List')
-    queueFile(authorization, 'Contract')
+    # queueFile(authorization, 'Event Sheet')
+    # queueFile(authorization, 'Pack List')
+    # queueFile(authorization, 'Contract')
     moveFiles(authorization)
 
 
@@ -58,4 +66,5 @@ def auth(service):
         with open('googleToken.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
-    return discovery.build(service, 'v3', http=creds.authorize(Http()))
+    authentication = build(service, 'v3', credentials=creds)
+    return authentication

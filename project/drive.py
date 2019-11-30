@@ -39,17 +39,17 @@ def createFolder(DRIVE):
 # NAME:     createFile
 # PURPOSE:  Builds a .txt file of whatever document is needed
 # 
-def createFile(docType):
+def createFile(fileName, docType):
     with open(fileName, 'w+') as file_handler:
         if docType == 'Sales Sheet':
             file_handler.write(
                 'Sales Sheet\n'
                 'Today\'s Date:\t\n\n'
                 'Event Informaion:\n'
-                'Name:\t%s\n' % (main.eventName)
-                'Date:\t%s\n' % (main.startDate)
+                'Name:\t\n'
+                'Date:\t\n'
                 'Type:\t\n'
-                'Time:\t%s\n' % (main.startTime)
+                'Time:\t\n'
                 '\tEarliest Setup:\t\n'
                 '\tLatest Takedown:\t\n'
                 'Location:\t\n'
@@ -69,9 +69,10 @@ def createFile(docType):
 # 
 def queueFile(DRIVE, docType):
     temp_list = []
-    fileName = main.eventName + ' ' + docType + '.txt'
-    createFile(docType)
+    fileName = '%s %s.txt' % (main.eventName, docType)
     temp_list.append(fileName)
+    fileName = 'Desktop/project/%s %s.txt' % (main.eventName, docType)
+    createFile(fileName, docType)
     temp_list.append(mimeType)
     file_metadata = tuple(temp_list)
     file_queue.append(file_metadata)
@@ -82,10 +83,10 @@ def queueFile(DRIVE, docType):
 # 
 def moveFiles(DRIVE):
     for filename, mimeType in file_queue:
-    metadata = {
-        'name': filename,
-        'parents': [folder_id]
-        }
+        metadata = {
+            'name': filename,
+            'parents': [folder_id]
+            }
     if mimeType:
         metadata['mimeType'] = mimeType
     result = DRIVE.files().create(body=metadata, media_body=filename).execute()
