@@ -4,16 +4,6 @@
 
 from . import main
 
-# TODO List:
-# - find a way to extract all form data to .txt file
-# - connect drive.py to main.py and form
-# - create new files in Drive without having to keep them on local storage
-# - Files process
-#   - form data assigned to main.py variables
-#   - main.py variables to .txt/.gdoc
-#   - .txt/.gdoc to local storage temporary files
-#   - local storage temporary files to Drive
-#   - delete local storage temporary files
 
 # 
 # LOCAL VARIABLES:
@@ -71,7 +61,7 @@ def queueFile(DRIVE, docType):
     temp_list = []
     fileName = '%s %s.txt' % (main.eventName, docType)
     temp_list.append(fileName)
-    fileName = 'Desktop/project/%s %s.txt' % (main.eventName, docType)
+    # fileName = 'Desktop/project/%s %s.txt' % (main.eventName, docType)
     createFile(fileName, docType)
     temp_list.append(mimeType)
     file_metadata = tuple(temp_list)

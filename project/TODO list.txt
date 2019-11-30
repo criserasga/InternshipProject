@@ -1,0 +1,15 @@
+
+TODO List:
+
+- change time entries to accomodate 12 hr scale
+    - add PM somehow
+    - add 12:00 to time entries
+- find other variables that should be stored in config.py
+- add .txt formats for Pack List, Event Sheet, and Contract
+- switch over from .txt to .pdf
+- create new files in Drive without using local storage
+    - delete used local storage files
+- build proper unit tests in tests.py
+- render multiple forms on one view
+- submit multiple forms under one submit
+- migrate all form data to display in .txt file

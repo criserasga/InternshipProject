@@ -4,8 +4,6 @@
 
 from . import main
 
-# TODO List:
-# - add '12:00' if PM
 
 # 
 # NAME:     createEvent

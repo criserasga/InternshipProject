@@ -10,10 +10,6 @@ from .forms import ClientForm
 from .forms import NotesForm
 from . import main
 
-# TODO: 
-# - assign input data into MAIN.PY variables
-# - render multiple forms on one page 
-# - submit multiple forms under one submit button
 
 def sales_sheet(request):
     # client_form = ClientForm(request.POST or None)
