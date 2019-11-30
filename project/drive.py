@@ -2,6 +2,8 @@
 # This file contains all functions necessary for Google's Drive API
 # 
 
+from . import main
+
 # TODO List:
 # - find a way to extract all form data to .txt file
 # - connect drive.py to main.py and form

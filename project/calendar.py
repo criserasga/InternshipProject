@@ -5,7 +5,6 @@
 from . import main
 
 # TODO List:
-# - always add on another ':00' for 'seconds'
 # - add '12:00' if PM
 
 # 
@@ -15,8 +14,8 @@ from . import main
 def createEvent(CALENDAR):
     EVENT = {
         'summary': eventName,
-        'start':  {'dateTime': main.startDate + 'T' + main.startTime + '%s' % main.gmtOffset},
-        'end':    {'dateTime': main.endDate + 'T' + main.endTime + '%s' % main.gmtOffset},
+        'start':  {'dateTime': '%sT%s:00%s' % (main.startDate, main.startTime, main.gmtOffset)},
+        'end':    {'dateTime': '%sT%s:00%s' % (main.endDate, main.endTime, main.gmtOffset)},
         'attendees': [
             #{'email': 'friend1@example.com'},
             #{'email': 'friend2@example.com'},
