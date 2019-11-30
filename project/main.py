@@ -12,7 +12,12 @@ def calendarAuth():
 
 def driveAuth():
     authorization = auth('drive')
-    createFile(authorization)
+    createFolder(authorization)
+    queueFile(authorization, 'Sales Sheet')
+    queueFile(authorization, 'Event Sheet')
+    queueFile(authorization, 'Pack List')
+    queueFile(authorization, 'Contract')
+    moveFiles(authorization)
 
 
 # 

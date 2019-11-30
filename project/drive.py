@@ -65,9 +65,10 @@ def createFile(docType):
 # NAME:     queueFiles
 # PURPOSE:  Adds files to an array queue to be uploaded
 # 
-def queueFiles(DRIVE, docType):
+def queueFile(DRIVE, docType):
     temp_list = []
     fileName = main.eventName + ' ' + docType + '.txt'
+    createFile(docType)
     temp_list.append(fileName)
     temp_list.append(mimeType)
     file_metadata = tuple(temp_list)
