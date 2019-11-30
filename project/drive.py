@@ -23,6 +23,7 @@ def createFolder(DRIVE):
         'mimeType': 'application/vnd.google-apps.folder'
     }
     file = DRIVE.files().create(body=folder_metadata, fields='id').execute()
+    global folder_id
     folder_id = file.get('id')
 
 # 
@@ -60,9 +61,8 @@ def createFile(fileName, docType):
 def queueFile(DRIVE, docType):
     temp_list = []
     fileName = '%s %s.txt' % (main.eventName, docType)
-    temp_list.append(fileName)
-    # fileName = 'Desktop/project/%s %s.txt' % (main.eventName, docType)
     createFile(fileName, docType)
+    temp_list.append(fileName)
     temp_list.append(mimeType)
     file_metadata = tuple(temp_list)
     file_queue.append(file_metadata)
@@ -80,5 +80,3 @@ def moveFiles(DRIVE):
     if mimeType:
         metadata['mimeType'] = mimeType
     result = DRIVE.files().create(body=metadata, media_body=filename).execute()
-    if result:
-        print('Uploaded "%s" (%s)' % (filename, result['mimeType']))
