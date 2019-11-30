@@ -8,6 +8,7 @@ from . import views
 
 urlpatterns = [
     path("", views.sales_sheet, name="sales_sheet"),
+    path("submit/", views.submit, name="submit"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

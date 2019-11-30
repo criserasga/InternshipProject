@@ -18,21 +18,16 @@ def driveAuth():
 # 
 # NAME VARIABLES
 # 
-eventName = 'Dinner with friends'   #placeholder
+eventName = ''
 
 #
 # DATE & TIME VARIABLES
 #
-startDate = '2019-11-15'            #placeholder
-endDate = '2019-11-15'              #placeholder
-startTime = '19:00'                 #placeholder
-endTime = '22:00'                   #placeholder
+startDate = ''
+endDate = ''
+startTime = ''
+endTime = ''
 gmtOffset = '-7:00'                 # for GMT-7 or MDT
-
-    # TODO LIST:
-    #   - full string format: 'YYYY-MM-DD' + 'T' + 'HH:MM:SS'
-    #   - 'start' and 'end' variables are to be user-input from Django form
-
 
 # 
 # NAME:     auth

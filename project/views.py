@@ -16,9 +16,9 @@ from . import main
 # - submit multiple forms under one submit button
 
 def sales_sheet(request):
-    client_form = ClientForm(request.POST or None)
+    # client_form = ClientForm(request.POST or None)
     event_form = EventForm(request.POST or None)
-    notes_form = NotesForm(request.POST or None)
+    # notes_form = NotesForm(request.POST or None)
 
     if request.method == "POST":
         if event_form.is_valid():
@@ -27,5 +27,14 @@ def sales_sheet(request):
             main.endDate = main.startDate
             main.startTime = event_form.cleaned_data.get('event_time')
             # main.endTime = 
+
+            # test prints to see if variables are assigned
+            print('Event Name: %s' % (main.eventName))
+            print('Event Date: %s' % (main.startDate))
+            print('Event Time: %s' % (main.startTime))
+            return redirect('submit')
     else:
-        return render(request, "project/form.html", {'event_form': event_form}) 
+        return render(request, "project/form.html", {'event_form': event_form})
+
+def submit(request):
+    return render(request, 'project/submit.html')
