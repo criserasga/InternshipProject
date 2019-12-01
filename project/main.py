@@ -22,7 +22,7 @@ def drive():
     authorization = auth('drive')
     createFolder(authorization)
     queueFile(authorization, 'Sales Sheet')
-    # queueFile(authorization, 'Event Sheet')
+    queueFile(authorization, 'Event Sheet')
     # queueFile(authorization, 'Pack List')
     # queueFile(authorization, 'Contract')
     moveFiles(authorization)

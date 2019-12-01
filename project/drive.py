@@ -10,7 +10,7 @@ from . import main
 # 
 folder_id = ''
 fileName = ''
-mimeType = None
+mimeType = 'application/vnd.google-apps.document'
 file_queue = []
 
 # 
@@ -37,22 +37,45 @@ def createFile(fileName, docType):
                 'Sales Sheet\n'
                 'Today\'s Date:\t\n\n'
                 'Event Informaion:\n'
-                'Name:\t\n'
-                'Date:\t\n'
-                'Type:\t\n'
-                'Time:\t\n'
-                '\tEarliest Setup:\t\n'
-                '\tLatest Takedown:\t\n'
-                'Location:\t\n'
-                'Dress Code:\t\n'
-                'Wi-Fi Availability:\t\n'
-                'DJ Requested:\t\n'
-                'Music Type:\t\n'
-                'Lighting:\t\n'
-                'Next Steps:\t\n'
-                'Additional Notes:\t\n\n'
-                'Sales Rep:\t\n'
+                '\tName:\t\n'
+                '\tDate:\t\n'
+                '\tType:\t\n'
+                '\tTime:\t\n'
+                '\t\tEarliest Setup:\t\n'
+                '\t\tLatest Takedown:\t\n'
+                '\tLocation:\t\n\n'
+                'Informatino for Us:\n'
+                '\tDress Code:\t\n'
+                '\tWi-Fi Availability:\t\n'
+                '\tDJ Requested:\t\n'
+                '\tMusic Type:\t\n'
+                '\tLighting:\t\n'
+                '\tNext Steps:\t\n'
+                '\tAdditional Notes:\t\n\n'
+                'Sales Rep:\t'
             )
+        if docType == 'Event Sheet':
+            file_handler.write(
+                'Event Sheet\n\n'
+                'Event Details:\n'
+                '\tName:\t\n'
+                '\tDate:\t\n'
+                '\tLocation/Address:\t\n'
+                '\tScheduled Times:\t\n\n'
+                'Sales Rep:\t\n'
+                'Event Lead:\t\n'
+                'Other Staff:\t\n'
+                'Setup Time:\t\n'
+                'Takedown Time:\t\n'
+                'Point of Contact:\t\n'
+                'Vehicle:\t\n'
+                '\tAnticipated Miles:\t\n'
+                'Dress Code:\t\n'
+                'Invoice Number:\t\n\n'
+                'Staff Notes:\t'
+            )
+        # if docType == 'Pack List'
+        # if docType == 'Contract'
 
 # 
 # NAME:     queueFiles
