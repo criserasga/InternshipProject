@@ -22,15 +22,10 @@ def sales_sheet(request):
             main.startDate = event_form.cleaned_data.get('event_date')
             main.endDate = main.startDate
             main.startTime = event_form.cleaned_data.get('event_time')
-            # main.endTime = 
+            main.endTime = event_form.cleaned_data.get('event_end')
 
-            
             main.drive()
             main.calendar()
-            # # test prints to see if variables are assigned
-            # print('Event Name: %s' % (main.eventName))
-            # print('Event Date: %s' % (main.startDate))
-            # print('Event Time: %s' % (main.startTime))
             return redirect('submit')
     else:
         return render(request, "project/form.html", {'event_form': event_form})

@@ -13,8 +13,8 @@ class EventForm(forms.Form):
         input_formats=['%Y-%m-%d'], help_text='YYYY-MM-DD')
     event_time = forms.TimeField(label='Event Time', 
         input_formats=['%H:%M'], help_text='HH:MM')
-    event_duration = forms.DurationField(label='Event Duration', 
-        help_text='How long is the event running for?', required=False)
+    event_end = forms.TimeField(label='Event End Time', 
+        input_formats=['%H:%M'], help_text='HH:MM')
     event_setup = forms.TimeField(label='Earliest Setup Time', 
         help_text='When is the earliest we can come in for setup?', input_formats=['%H:%M'], required=False)
     event_takedown = forms.TimeField(label='Latest Takedown Time', 

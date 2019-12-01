@@ -40,7 +40,7 @@ startDate = ''
 endDate = ''
 startTime = ''
 endTime = ''
-gmtOffset = '-7:00'                 # for GMT-7 or MDT
+gmtOffset = '-07:00'    # for GMT-7 or MDT
 
 # 
 # NAME:     auth

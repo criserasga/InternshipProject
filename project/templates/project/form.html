@@ -7,7 +7,12 @@ Sales Sheet
     <form method="POST" class="log-form">
         {% csrf_token %}
     <!-- {{ client_form.as_p }} -->
-        {{ event_form.as_p }}
+    
+    <h1>Sales Sheet</h1>
+    <hr>
+    <table>
+        {{ event_form.as_table }}
+    </table>
     <!-- {{ notes_form.as_p }} -->
         <input type="submit" name="submit" value="Submit"/>
     </form>

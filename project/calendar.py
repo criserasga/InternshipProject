@@ -11,9 +11,9 @@ from . import main
 # 
 def createEvent(CALENDAR):
     EVENT = {
-        'summary': eventName,
-        'start':  {'dateTime': '%sT%s:00%s' % (main.startDate, main.startTime, main.gmtOffset)},
-        'end':    {'dateTime': '%sT%s:00%s' % (main.endDate, main.endTime, main.gmtOffset)},
+        'summary': main.eventName,
+        'start':  {'dateTime': '%sT%s%s' % (main.startDate, main.startTime, main.gmtOffset)},
+        'end':    {'dateTime': '%sT%s%s' % (main.endDate, main.endTime, main.gmtOffset)},
         'attendees': [
             #{'email': 'friend1@example.com'},
             #{'email': 'friend2@example.com'},
