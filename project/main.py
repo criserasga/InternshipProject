@@ -13,7 +13,6 @@ from . import calendar
 import pickle
 import os
 
-
 def calendar():
     authorization = auth('calendar')
     createEvent(authorization)
@@ -27,19 +26,44 @@ def drive():
     # queueFile(authorization, 'Contract')
     moveFiles(authorization)
 
+# 
+# CLIENT VARIABLES
+# 
+clientName = ''
+clientPhone = ''
+clientEmail = ''
+clientCompany = ''
 
-# 
-# NAME VARIABLES
-# 
+#
+# EVENT VARIABLES
+#
 eventName = ''
+eventType = ''
+eventDate = ''
+eventTime = ''
+eventEnd = ''
+eventSetup = ''
+eventTakedown = ''
+eventLocation = ''
+eventDress = ''
+eventMusic = ''
 
-#
-# DATE & TIME VARIABLES
-#
-startDate = ''
-endDate = ''
-startTime = ''
-endTime = ''
+# 
+# NOTES VARIABLES
+# 
+notesRep = ''
+notesInv = ''
+notesDate = ''
+notesNext = ''
+notesNotes = ''
+
+# 
+# CALENDAR-SPECIFIC VARIABLES
+# 
+startDate = eventDate
+endDate = startDate
+startTime = eventTime
+endTime = eventEnd
 gmtOffset = '-07:00'    # for GMT-7 or MDT
 
 # 

@@ -27,7 +27,7 @@ class SalesSheet(forms.Form):
     event_location = forms.CharField(label='Event Location')
     event_dress = forms.CharField(label='Event Dress Code', 
         help_text='How well should we dress for the event?')
-    event_wifi = forms.BooleanField(label='Wi-fi',
+    event_wifi = forms.BooleanField(label='Wi-Fi',
         help_text='Is Wi-Fi available to us?', required=False)
     event_dj = forms.BooleanField(label='DJ Requested', 
         help_text='Is a DJ needed for this event?', required=False)
@@ -36,9 +36,9 @@ class SalesSheet(forms.Form):
     event_lights = forms.BooleanField(label='Event Lighting', 
         help_text='Do we need to bring lighting at the event?', required=False)
     
-    notes_sales = forms.CharField(label='Sales Rep', 
+    notes_rep = forms.CharField(label='Sales Rep', 
         help_text='Who made the sale?')
-    notes_invoice = forms.IntegerField(label='Estimate/Invoice Number')
+    notes_inv = forms.IntegerField(label='Estimate/Invoice Number')
     notes_date = forms.DateField(label='Today\'s Date', 
         input_formats=['%Y-%m-%d'])
     notes_next = forms.CharField(label='Next Step', 

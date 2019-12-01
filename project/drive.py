@@ -4,7 +4,6 @@
 
 from . import main
 
-
 # 
 # LOCAL VARIABLES:
 # 
@@ -35,44 +34,44 @@ def createFile(fileName, docType):
         if docType == 'Sales Sheet':
             file_handler.write(
                 'Sales Sheet\n'
-                'Today\'s Date:\t\n\n'
+                'Today\'s Date:\t%s\n\n' % main.notesDate +
                 'Event Informaion:\n'
-                '\tName:\t\n'
-                '\tDate:\t\n'
-                '\tType:\t\n'
-                '\tTime:\t\n'
-                '\t\tEarliest Setup:\t\n'
-                '\t\tLatest Takedown:\t\n'
-                '\tLocation:\t\n\n'
+                '\tName:\t%s\n' % main.eventName +
+                '\tDate:\t%s\n' % main.eventDate +
+                '\tType:\t%s\n' % main.eventType +
+                '\tTime:\t%s\n' % main.eventTime +
+                '\t\tEarliest Setup:\t%s\n' % main.eventSetup +
+                '\t\tLatest Takedown:\t%s\n' % main.eventTakedown +
+                '\tLocation:\t%s\n\n' % main.eventLocation +
                 'Informatino for Us:\n'
-                '\tDress Code:\t\n'
+                '\tDress Code:\t%s\n' % main.eventDress +
                 '\tWi-Fi Availability:\t\n'
                 '\tDJ Requested:\t\n'
-                '\tMusic Type:\t\n'
+                '\tMusic Type:\t%s\n' % main.eventMusic +
                 '\tLighting:\t\n'
-                '\tNext Steps:\t\n'
-                '\tAdditional Notes:\t\n\n'
-                'Sales Rep:\t'
+                '\tNext Steps:\t%s\n' % main.notesNext +
+                '\tAdditional Notes:\t%s\n\n' % main.notesNotes +
+                'Sales Rep:\t%s' % main.notesRep
             )
         if docType == 'Event Sheet':
             file_handler.write(
                 'Event Sheet\n\n'
                 'Event Details:\n'
-                '\tName:\t\n'
-                '\tDate:\t\n'
-                '\tLocation/Address:\t\n'
-                '\tScheduled Times:\t\n\n'
-                'Sales Rep:\t\n'
+                '\tName:\t%s\n' % main.eventName +
+                '\tDate:\t%s\n' % main.eventDate +
+                '\tLocation/Address:\t%s\n' % main.eventLocation +
+                '\tScheduled Times:\t%s-%s\n\n' % (main.startTime, main.endTime) +
+                'Sales Rep:\t%s\n' % main.notesRep +
                 'Event Lead:\t\n'
                 'Other Staff:\t\n'
-                'Setup Time:\t\n'
-                'Takedown Time:\t\n'
-                'Point of Contact:\t\n'
+                'Setup Time:\t%s\n' % main.eventSetup +
+                'Takedown Time:\t%s\n' % main.eventTakedown +
+                'Point of Contact:\t%s\n%s\n' % (main.clientName, main.clientPhone) + 
                 'Vehicle:\t\n'
                 '\tAnticipated Miles:\t\n'
-                'Dress Code:\t\n'
-                'Invoice Number:\t\n\n'
-                'Staff Notes:\t'
+                'Dress Code:\t%s\n' % main.eventDress +
+                'Invoice Number:\t%s\n\n' % main.notesInv +
+                'Staff Notes:\t%s' % main.notesNotes
             )
         # if docType == 'Pack List'
         # if docType == 'Contract'
