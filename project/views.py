@@ -38,6 +38,12 @@ def sales_sheet(request):
             main.notesNext = form.cleaned_data.get('notes_next')
             main.notesNotes = form.cleaned_data.get('notes_notes')
 
+            # Calendar-Specific Variables
+            main.startDate = main.eventDate
+            main.endDate = main.startDate
+            main.startTime = main.eventTime
+            main.endTime = main.eventEnd
+
             # Make things work
             main.drive()
             main.calendar()

@@ -60,10 +60,10 @@ notesNotes = ''
 # 
 # CALENDAR-SPECIFIC VARIABLES
 # 
-startDate = eventDate
-endDate = startDate
-startTime = eventTime
-endTime = eventEnd
+startDate = ''
+endDate = ''
+startTime = ''
+endTime = ''
 gmtOffset = '-07:00'    # for GMT-7 or MDT
 
 # 

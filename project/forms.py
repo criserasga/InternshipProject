@@ -42,6 +42,6 @@ class SalesSheet(forms.Form):
     notes_date = forms.DateField(label='Today\'s Date', 
         input_formats=['%Y-%m-%d'])
     notes_next = forms.CharField(label='Next Step', 
-        help_text='What is the next step for this client?')
+        help_text='What is the next step for this client?', required=False)
     notes_notes = forms.CharField(label='Additional Notes', 
-        widget=forms.Textarea)
+        widget=forms.Textarea, required=False)

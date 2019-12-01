@@ -9,10 +9,6 @@ from . import main
 # PURPOSE:  Creates a Google Calendar event from user's input
 # 
 def createEvent(CALENDAR):
-    print('Start Date: %s\n' % main.startDate)
-    print('Start Time: %s\n' % main.startTime)
-    print('End Date: %s\n' % main.endDate)
-    print('End Time %s\n' % main.endTime)
     EVENT = {
         'summary': main.eventName,
         'start':  {'dateTime': '%sT%s%s' % (main.startDate, main.startTime, main.gmtOffset)},
