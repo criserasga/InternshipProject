@@ -4,7 +4,12 @@
 
 from django import forms
 
-class EventForm(forms.Form):
+class SalesSheet(forms.Form):
+    client_name = forms.CharField(label='Client Name')
+    client_phone = forms.CharField(label='Client Phone Number')
+    client_email = forms.EmailField(label='Client E-Mail')
+    client_company = forms.CharField(label='Client Organization/Company')
+    
     event_name = forms.CharField(label='Event Name')
     event_type = forms.CharField(label='Event Type')
     event_sponsor = forms.BooleanField(label='Sponsorship', 
@@ -22,21 +27,15 @@ class EventForm(forms.Form):
     event_location = forms.CharField(label='Event Location')
     event_dress = forms.CharField(label='Event Dress Code', 
         help_text='How well should we dress for the event?')
-    event_wifi = forms.BooleanField(label='Is Wi-Fi available to us?', required=False)
+    event_wifi = forms.BooleanField(label='Wi-fi',
+        help_text='Is Wi-Fi available to us?', required=False)
     event_dj = forms.BooleanField(label='DJ Requested', 
         help_text='Is a DJ needed for this event?', required=False)
     event_music = forms.CharField(label='Music Type', 
         help_text='What kind of music does the event need?', required=False)
     event_lights = forms.BooleanField(label='Event Lighting', 
         help_text='Do we need to bring lighting at the event?', required=False)
-
-class ClientForm(forms.Form):
-    client_name = forms.CharField(label='Client Name')
-    client_phone = forms.CharField(label='Client Phone Number')
-    client_email = forms.EmailField(label='Client E-Mail')
-    client_company = forms.CharField(label='Client Organization/Company')
-
-class NotesForm(forms.Form):
+    
     notes_sales = forms.CharField(label='Sales Rep', 
         help_text='Who made the sale?')
     notes_invoice = forms.IntegerField(label='Estimate/Invoice Number')
@@ -46,5 +45,3 @@ class NotesForm(forms.Form):
         help_text='What is the next step for this client?')
     notes_notes = forms.CharField(label='Additional Notes', 
         widget=forms.Textarea)
-
-#class PackagesForm(forms.Form):
