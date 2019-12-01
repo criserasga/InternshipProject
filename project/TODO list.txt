@@ -11,4 +11,3 @@ TODO List:
 - create new files in Drive without using local storage
     - delete used local storage files
 - build proper unit tests in tests.py
-- migrate all form data to display in .txt file
