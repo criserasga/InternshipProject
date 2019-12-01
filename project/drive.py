@@ -9,7 +9,7 @@ from . import main
 # 
 folder_id = ''
 fileName = ''
-mimeType = 'application/vnd.google-apps.document'
+mimeType = None
 file_queue = []
 
 # 
@@ -66,7 +66,7 @@ def createFile(fileName, docType):
                 'Other Staff:\t\n'
                 'Setup Time:\t%s\n' % main.eventSetup +
                 'Takedown Time:\t%s\n' % main.eventTakedown +
-                'Point of Contact:\t%s\n%s\n' % (main.clientName, main.clientPhone) + 
+                'Point of Contact:\t%s\t%s\n' % (main.clientName, main.clientPhone) + 
                 'Vehicle:\t\n'
                 '\tAnticipated Miles:\t\n'
                 'Dress Code:\t%s\n' % main.eventDress +
@@ -82,11 +82,13 @@ def createFile(fileName, docType):
 # 
 def queueFile(DRIVE, docType):
     temp_list = []
+    global fileName
     fileName = '%s %s.txt' % (main.eventName, docType)
     createFile(fileName, docType)
     temp_list.append(fileName)
     temp_list.append(mimeType)
     file_metadata = tuple(temp_list)
+    global file_queue
     file_queue.append(file_metadata)
 
 # 
@@ -99,6 +101,6 @@ def moveFiles(DRIVE):
             'name': filename,
             'parents': [folder_id]
             }
-    if mimeType:
-        metadata['mimeType'] = mimeType
-    result = DRIVE.files().create(body=metadata, media_body=filename).execute()
+        if mimeType:
+            metadata['mimeType'] = mimeType
+        result = DRIVE.files().create(body=metadata, media_body=filename).execute()

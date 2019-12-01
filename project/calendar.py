@@ -22,9 +22,3 @@ def createEvent(CALENDAR):
     # The entire calendar build request
     e = CALENDAR.events().insert(calendarId='primary',
         sendNotifications=True, body=EVENT).execute()
-
-    # Check to see what it entered into the calendar
-    print('''*** %r event added:
-    Start: %s
-    End:   %s''' % (e['summary'].encode('utf-8'),
-        e['start']['dateTime'], e['end']['dateTime']))
