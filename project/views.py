@@ -23,6 +23,10 @@ def sales_sheet(request):
             main.eventName = form.cleaned_data.get('event_name')
             main.eventType = form.cleaned_data.get('event_type')
             main.eventSponsor = form.cleaned_data.get('event_sponsor')
+            if main.eventSponsor == True:
+                main.eventSponsor = 'Yes'
+            else:
+                main.eventSponsor = 'No'
             main.eventDate = form.cleaned_data.get('event_date')
             main.eventTime = form.cleaned_data.get('event_time')
             main.eventEnd = form.cleaned_data.get('event_end')
@@ -31,9 +35,21 @@ def sales_sheet(request):
             main.eventLocation = form.cleaned_data.get('event_location')
             main.eventDress = form.cleaned_data.get('event_dress')
             main.eventWifi = form.cleaned_data.get('event_wifi')
+            if main.eventWifi == True:
+                main.eventWifi = 'Yes'
+            else:
+                main.eventWifi = 'No'
             main.eventDj = form.cleaned_data.get('event_dj')
+            if main.eventDj == True:
+                main.eventDj = 'Yes'
+            else:
+                main.eventDj = 'No'
             main.eventMusic = form.cleaned_data.get('event_music')
             main.eventLights = form.cleaned_data.get('event_lights')
+            if main.eventLights == True:
+                main.eventLights = 'Yes'
+            else:
+                main.eventLights = 'No'
             
             # Notes Variables
             main.notesRep = form.cleaned_data.get('notes_rep')
