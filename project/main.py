@@ -39,6 +39,7 @@ clientCompany = ''
 #
 eventName = ''
 eventType = ''
+eventSponsor = ''
 eventDate = ''
 eventTime = ''
 eventEnd = ''
@@ -46,7 +47,10 @@ eventSetup = ''
 eventTakedown = ''
 eventLocation = ''
 eventDress = ''
+eventWifi = ''
+eventDj = ''
 eventMusic = ''
+eventLights = ''
 
 # 
 # NOTES VARIABLES

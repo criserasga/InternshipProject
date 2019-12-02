@@ -22,6 +22,7 @@ def sales_sheet(request):
             # Event Variables
             main.eventName = form.cleaned_data.get('event_name')
             main.eventType = form.cleaned_data.get('event_type')
+            main.eventSponsor = form.cleaned_data.get('event_sponsor')
             main.eventDate = form.cleaned_data.get('event_date')
             main.eventTime = form.cleaned_data.get('event_time')
             main.eventEnd = form.cleaned_data.get('event_end')
@@ -29,7 +30,10 @@ def sales_sheet(request):
             main.eventTakedown = form.cleaned_data.get('event_takedown')
             main.eventLocation = form.cleaned_data.get('event_location')
             main.eventDress = form.cleaned_data.get('event_dress')
+            main.eventWifi = form.cleaned_data.get('event_wifi')
+            main.eventDj = form.cleaned_data.get('event_dj')
             main.eventMusic = form.cleaned_data.get('event_music')
+            main.eventLights = form.cleaned_data.get('event_lights')
             
             # Notes Variables
             main.notesRep = form.cleaned_data.get('notes_rep')

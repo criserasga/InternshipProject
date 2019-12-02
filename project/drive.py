@@ -44,11 +44,12 @@ def createFile(fileName, docType):
                 '\t\tLatest Takedown:\t%s\n' % main.eventTakedown +
                 '\tLocation:\t%s\n\n' % main.eventLocation +
                 'Informatino for Us:\n'
+                '\tSponsorship:\t%s\n' % main.eventSponsor +
                 '\tDress Code:\t%s\n' % main.eventDress +
-                '\tWi-Fi Availability:\t\n'
-                '\tDJ Requested:\t\n'
+                '\tWi-Fi Availability:\t%s\n' % main.eventWifi +
+                '\tDJ Requested:\t%s\n' % main.eventDj +
                 '\tMusic Type:\t%s\n' % main.eventMusic +
-                '\tLighting:\t\n'
+                '\tLighting:\t%s\n' % main.eventLights +
                 '\tNext Steps:\t%s\n' % main.notesNext +
                 '\tAdditional Notes:\t%s\n\n' % main.notesNotes +
                 'Sales Rep:\t%s' % main.notesRep
