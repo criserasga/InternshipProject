@@ -1,12 +1,15 @@
 
 TODO List:
 
+Required Itmes:
+- add equipment packages to form
+- add .txt formats for Pack List and Contract
+
+Usability Items:
 - change time entries to accomodate 12 hr scale
     - add PM somehow
     - add 12:00 to time entries
 - find other variables that should be stored in config.py
-- add equipment packages to form
-- add .txt formats for Pack List and Contract
 - switch over from .txt to .pdf
 - create new files in Drive without using local storage
     - delete used local storage files

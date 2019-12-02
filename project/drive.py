@@ -35,7 +35,7 @@ def createFile(fileName, docType):
             file_handler.write(
                 'Sales Sheet\n'
                 'Today\'s Date:\t%s\n\n' % main.notesDate +
-                'Event Informaion:\n'
+                'Event Information:\n'
                 '\tName:\t%s\n' % main.eventName +
                 '\tDate:\t%s\n' % main.eventDate +
                 '\tType:\t%s\n' % main.eventType +
@@ -43,7 +43,7 @@ def createFile(fileName, docType):
                 '\t\tEarliest Setup:\t%s\n' % main.eventSetup +
                 '\t\tLatest Takedown:\t%s\n' % main.eventTakedown +
                 '\tLocation:\t%s\n\n' % main.eventLocation +
-                'Informatino for Us:\n'
+                'Information for Us:\n'
                 '\tSponsorship:\t%s\n' % main.eventSponsor +
                 '\tDress Code:\t%s\n' % main.eventDress +
                 '\tWi-Fi Availability:\t%s\n' % main.eventWifi +

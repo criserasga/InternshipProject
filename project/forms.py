@@ -4,6 +4,11 @@
 
 from django import forms
 
+CHOICES_SPEAKERS = [
+    (1, 'x1 Speaker \n x1 Speaker Stand \n x1 Wired Mic \n x1 8-Channel Mixer \n Necessary Cables and Small Cable Tote'),
+    (2, 'x2 Speakers \n x2 Speaker Stands \n x1 Wireless Mic \n x1 Wired Mic \n x1 8-Channel Mixer \n Necessary Cables and Small Cable Tote')
+]
+
 class SalesSheet(forms.Form):
     client_name = forms.CharField(label='Client Name')
     client_phone = forms.CharField(label='Client Phone Number')
@@ -45,3 +50,6 @@ class SalesSheet(forms.Form):
         help_text='What is the next step for this client?', required=False)
     notes_notes = forms.CharField(label='Additional Notes', 
         widget=forms.Textarea, required=False)
+
+    packages_speakers = forms.ChoiceField(label='Speakers Packages', 
+        widget=forms.RadioSelect, choices=CHOICES_SPEAKERS)
