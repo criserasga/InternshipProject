@@ -9,7 +9,7 @@ from . import main
 # 
 folder_id = ''
 fileName = ''
-mimeType = None
+mimeType = 'application/vnd.google-apps.document'
 file_queue = []
 
 # 

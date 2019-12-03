@@ -51,5 +51,5 @@ class SalesSheet(forms.Form):
     notes_notes = forms.CharField(label='Additional Notes', 
         widget=forms.Textarea, required=False)
 
-    packages_speakers = forms.ChoiceField(label='Speakers Packages', 
-        widget=forms.RadioSelect, choices=CHOICES_SPEAKERS)
+    # packages_speakers = forms.ChoiceField(label='Speakers Packages', 
+        # widget=forms.RadioSelect, choices=CHOICES_SPEAKERS)
