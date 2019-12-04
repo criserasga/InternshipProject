@@ -74,7 +74,10 @@ def createFile(fileName, docType):
                 'Invoice Number:\t%s\n\n' % main.notesInv +
                 'Staff Notes:\t%s' % main.notesNotes
             )
-        # if docType == 'Pack List'
+        if docType == 'Pack List':
+            file_handler.write(
+                'Pack List\n\n%s' % main.packageChoice
+            )
         # if docType == 'Contract'
 
 # 

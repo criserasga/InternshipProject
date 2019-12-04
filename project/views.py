@@ -6,7 +6,14 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import SalesSheet
+from .forms import PACKAGES
 from . import main
+
+# dictionary of packages
+#packages = {
+#    "go big or go home": "700 vertek 5000w\nsmall 200w sub",
+#    "next package": "stuf"
+#}
 
 def sales_sheet(request):
     form = SalesSheet(request.POST or None)
@@ -64,9 +71,12 @@ def sales_sheet(request):
             main.startTime = main.eventTime
             main.endTime = main.eventEnd
 
+            # Equipment Variables
+            main.packageChoice = PACKAGES[(int(form.cleaned_data.get('package_choice'))-1)]
+
             # Make things work
             main.drive()
-            main.calendar()
+            # main.calendar()
             return redirect('submit')
     else:
         return render(request, "project/form.html", {'form': form})

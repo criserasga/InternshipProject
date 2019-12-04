@@ -22,7 +22,7 @@ def drive():
     createFolder(authorization)
     queueFile(authorization, 'Sales Sheet')
     queueFile(authorization, 'Event Sheet')
-    # queueFile(authorization, 'Pack List')
+    queueFile(authorization, 'Pack List')
     # queueFile(authorization, 'Contract')
     moveFiles(authorization)
 
@@ -60,6 +60,11 @@ notesInv = ''
 notesDate = ''
 notesNext = ''
 notesNotes = ''
+
+# 
+# EQUIPMENT VARIABLES
+# 
+packageChoice = None
 
 # 
 # CALENDAR-SPECIFIC VARIABLES
