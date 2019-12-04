@@ -2,8 +2,6 @@
 TODO List:
 
 Required Itmes:
-- add equipment packages to form
-- add .txt formats for Pack List and Contract
 - deploy app for testing (heroku)
     - connect app to AndX services/accounts
     - create a name for the project
