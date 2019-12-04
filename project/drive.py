@@ -78,7 +78,28 @@ def createFile(fileName, docType):
             file_handler.write(
                 'Pack List\n\n%s' % main.packageChoice
             )
-        # if docType == 'Contract'
+        if docType == 'Contract':
+            file_handler.write(
+                'Name:\t%s\n' % main.clientName +
+                'Mailing Address:\t\n' +
+                'Phone:\t%s\n' % main.clientPhone +
+                'E-Mail:\t%s\n\n' % main.clientEmail +
+
+                '%s has requested services for %s, from %s to %s. Location: %s\n' % (main.clientName, main.eventName, main.startTime, main.endTime, main.eventLocation) +
+                'The agreed upon amount to be paid will be $________\n' +
+                '* If overtime is desired by client the charge is due in advance of overtime ($35 per hour)\n\n' +
+
+                '1.\tA deposit is required for preparations for the event and to secure services for the date listed above. The amount shall be paid in the amount of $________ when signing this agreement. If %s cancels at any time before the date of the event, they can transfer the fee to another event within one (1) year, providing the new date is acceptable and available to ANDX Ent. ANDX Ent. may also choose to refund %s zero, part, or full of their deposit.\n' % (main.clientName, main.clientName) +
+                '2.\tThe remaining balance of $________ shall be paid by %s before said event ANDX Ent., at its sole option, can terminate this agreement and refuse to provide said services if payment of the remaining balance is not made in a timely manner (minimum of one week prior to event). Checks will be mailed to: 1582 N. Holmes Ave., Idaho Falls, ID, 83401\n' % main.clientName +
+                '3.\tANDX Ent. is not liable for any complications outside their control, including power interruptions, crowd control, or any other similar reason.\n' +
+                '4.\t%s is also responsible for damage to property of ANDX Ent. at event. Charges from damaged equipment will be made by ANDX Ent. and be known to %s by the end of the event.\n' % (main.clientName, main.clientName) +
+                '5.\tIf there is any breach of this agreement by ANDX Ent., the maximum amount of damages that can be awarded to %s, including attorney fees and costs, shall be the total amount paid to ANDX Ent.\n' % main.clientName +
+                '6.\tClient will be charged $40.00 for any returned checks.\n' +
+                '7.\tANDX Ent. will provide the following:\n\n%s\n\n' % main.packageChoice +
+                '8.\tOther requirements from our client:\n\n\n' +
+
+                'Signature of the Client (%s): ____________________________________' % main.clientName
+            )
 
 # 
 # NAME:     queueFiles

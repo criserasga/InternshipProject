@@ -23,7 +23,7 @@ def drive():
     queueFile(authorization, 'Sales Sheet')
     queueFile(authorization, 'Event Sheet')
     queueFile(authorization, 'Pack List')
-    # queueFile(authorization, 'Contract')
+    queueFile(authorization, 'Contract')
     moveFiles(authorization)
 
 # 
