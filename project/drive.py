@@ -3,6 +3,7 @@
 # 
 
 from . import main
+from datetime import datetime
 
 # 
 # LOCAL VARIABLES:
@@ -11,6 +12,18 @@ folder_id = None
 fileName = None
 mimeType = 'application/vnd.google-apps.document'
 file_queue = []
+
+# Reformat mm/dd/yy date input to required yyyy-mm-dd
+def dateFix(date):
+    inDate = datetime.strptime(str(date), '%Y-%m-%d')
+    outDate = datetime.strftime(inDate, '%m/%d/%y')
+    return outDate
+
+# Reformat 12-hr input to 24-hr requirement for Calendar
+def timeFix(time):
+    inTime = datetime.strptime(str(time), '%H:%M')
+    outTime = datetime.strftime(inTime, '%I:%M %p')
+    return outTime
 
 # 
 # NAME:     createFolder
@@ -37,11 +50,11 @@ def createFile(fileName, docType):
                 'Today\'s Date:\t%s\n\n' % main.notesDate +
                 'Event Information:\n'
                 '\tName:\t\t%s\n' % main.eventName +
-                '\tDate:\t\t%s\n' % main.eventDate +
+                '\tDate:\t\t%s\n' % dateFix(main.eventDate) +
                 '\tType:\t\t%s\n' % main.eventType +
-                '\tTime:\t\t%s\n' % main.eventTime +
-                '\t\tEarliest Setup:\t\t%s\n' % main.eventSetup +
-                '\t\tLatest Takedown:\t%s\n' % main.eventTakedown +
+                '\tTime:\t\t%s\n' % timeFix(main.eventTime) +
+                '\t\tEarliest Setup:\t\t%s\n' % timeFix(main.eventSetup) +
+                '\t\tLatest Takedown:\t%s\n' % timeFix(main.eventTakedown) +
                 '\tLocation:\t%s\n\n' % main.eventLocation +
                 'Information for Us:\n'
                 '\tSponsorship:\t\t%s\n' % main.eventSponsor +
@@ -59,14 +72,14 @@ def createFile(fileName, docType):
                 'Event Sheet\n\n'
                 'Event Details:\n'
                 '\tName:\t\t\t%s\n' % main.eventName +
-                '\tDate:\t\t\t%s\n' % main.eventDate +
+                '\tDate:\t\t\t%s\n' % dateFix(main.eventDate) +
                 '\tLocation/Address:\t%s\n' % main.eventLocation +
-                '\tScheduled Times:\t%s-%s\n\n' % (main.startTime, main.endTime) +
+                '\tScheduled Times:\t%s-%s\n\n' % (timeFix(main.startTime), timeFix(main.endTime)) +
                 'Sales Rep:\t\t%s\n' % main.notesRep +
                 'Event Lead:\t\t\n'
                 'Other Staff:\t\t\n'
-                'Setup Time:\t\t%s\n' % main.eventSetup +
-                'Takedown Time:\t%s\n' % main.eventTakedown +
+                'Setup Time:\t\t%s\n' % timeFix(main.eventSetup) +
+                'Takedown Time:\t%s\n' % timeFix(main.eventTakedown) +
                 'Point of Contact:\t%s\t%s\n' % (main.clientName, main.clientPhone) + 
                 'Vehicle:\t\t\n'
                 '\tAnticipated Miles:   \n'
@@ -85,7 +98,7 @@ def createFile(fileName, docType):
                 'Phone:   %s\t' % main.clientPhone +
                 'E-Mail:   %s\n\n' % main.clientEmail +
 
-                '%s has requested services for %s, from %s to %s. Location: %s\n' % (main.clientName, main.eventName, main.startTime, main.endTime, main.eventLocation) +
+                '%s has requested services for %s, from %s to %s. Location: %s\n' % (main.clientName, main.eventName, timeFix(main.startTime), timeFix(main.endTime), main.eventLocation) +
                 'The agreed upon amount to be paid will be $________\n' +
                 '* If overtime is desired by client the charge is due in advance of overtime ($35 per hour)\n\n' +
 

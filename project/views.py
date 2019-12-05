@@ -5,7 +5,6 @@
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.http import HttpResponse
-from datetime import datetime
 from .forms import SalesSheet
 from .forms import CHOICES
 from .forms import PACKAGES
@@ -65,20 +64,10 @@ def sales_sheet(request):
             main.notesNotes = form.cleaned_data.get('notes_notes')
 
             # Assign Calendar-Specific Variables
-            # Reformat mm/dd/yy date input to required yyyy-mm-dd
-            def dateFix(date):
-                inDate = datetime.strptime(date, '%m/%d/%y')
-                outDate = datetime.strftime(inDate, '%Y-%m-%d')
-                return outDate
-            main.startDate = dateFix(main.eventDate)
+            main.startDate = main.eventDate
             main.endDate = main.startDate
-            # Reformat 12-hr input to 24-hr requirement for Calendar
-            def timeFix(time):
-                inTime = datetime.strptime(time, '%I:%M %p')
-                outTime = datetime.strftime(inTime, '%H:%M')
-                return outTime
-            main.startTime = timeFix(main.eventTime)
-            main.endTime = timeFix(main.eventEnd)
+            main.startTime = main.eventTime
+            main.endTime = main.eventEnd
 
             # Assign Equipment Variables
             main.packageName = CHOICES[int(form.cleaned_data.get('package_choice'))]
