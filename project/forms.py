@@ -86,9 +86,9 @@ class SalesSheet(forms.Form):
         help_text='Are we sponsors for this event?', required=False)
     event_date = forms.DateField(label='Event Date', 
         input_formats=['%m/%d/%y'], help_text='MM/DD/YY')
-    event_time = forms.TimeField(label='Event Start Time', 
+    event_time = forms.TimeField(label='Start Time', 
         input_formats=['%I:%M %p'])
-    event_end = forms.TimeField(label='Event End Time', 
+    event_end = forms.TimeField(label='End Time', 
         input_formats=['%I:%M %p'])
     event_setup = forms.TimeField(label='Earliest Setup Time', 
         help_text='When is the earliest we can come in for setup?', input_formats=['%I:%M %p'], required=False)
