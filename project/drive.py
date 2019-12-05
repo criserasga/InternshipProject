@@ -36,21 +36,21 @@ def createFile(fileName, docType):
                 'Sales Sheet\n'
                 'Today\'s Date:\t%s\n\n' % main.notesDate +
                 'Event Information:\n'
-                '\tName:\t%s\n' % main.eventName +
-                '\tDate:\t%s\n' % main.eventDate +
-                '\tType:\t%s\n' % main.eventType +
-                '\tTime:\t%s\n' % main.eventTime +
-                '\t\tEarliest Setup:\t%s\n' % main.eventSetup +
+                '\tName:\t\t%s\n' % main.eventName +
+                '\tDate:\t\t%s\n' % main.eventDate +
+                '\tType:\t\t%s\n' % main.eventType +
+                '\tTime:\t\t%s\n' % main.eventTime +
+                '\t\tEarliest Setup:\t\t%s\n' % main.eventSetup +
                 '\t\tLatest Takedown:\t%s\n' % main.eventTakedown +
                 '\tLocation:\t%s\n\n' % main.eventLocation +
                 'Information for Us:\n'
-                '\tSponsorship:\t%s\n' % main.eventSponsor +
-                '\tDress Code:\t%s\n' % main.eventDress +
+                '\tSponsorship:\t\t%s\n' % main.eventSponsor +
+                '\tDress Code:\t\t%s\n' % main.eventDress +
                 '\tWi-Fi Availability:\t%s\n' % main.eventWifi +
                 '\tDJ Requested:\t%s\n' % main.eventDj +
-                '\tMusic Type:\t%s\n' % main.eventMusic +
-                '\tLighting:\t%s\n' % main.eventLights +
-                '\tNext Steps:\t%s\n' % main.notesNext +
+                '\tMusic Type:\t\t%s\n' % main.eventMusic +
+                '\tLighting:\t\t%s\n' % main.eventLights +
+                '\tNext Steps:\t\t%s\n' % main.notesNext +
                 '\tAdditional Notes:\t%s\n\n' % main.notesNotes +
                 'Sales Rep:\t%s' % main.notesRep
             )
@@ -58,21 +58,21 @@ def createFile(fileName, docType):
             file_handler.write(
                 'Event Sheet\n\n'
                 'Event Details:\n'
-                '\tName:\t%s\n' % main.eventName +
-                '\tDate:\t%s\n' % main.eventDate +
+                '\tName:\t\t\t%s\n' % main.eventName +
+                '\tDate:\t\t\t%s\n' % main.eventDate +
                 '\tLocation/Address:\t%s\n' % main.eventLocation +
                 '\tScheduled Times:\t%s-%s\n\n' % (main.startTime, main.endTime) +
-                'Sales Rep:\t%s\n' % main.notesRep +
-                'Event Lead:\t\n'
-                'Other Staff:\t\n'
-                'Setup Time:\t%s\n' % main.eventSetup +
+                'Sales Rep:\t\t%s\n' % main.notesRep +
+                'Event Lead:\t\t\n'
+                'Other Staff:\t\t\n'
+                'Setup Time:\t\t%s\n' % main.eventSetup +
                 'Takedown Time:\t%s\n' % main.eventTakedown +
                 'Point of Contact:\t%s\t%s\n' % (main.clientName, main.clientPhone) + 
-                'Vehicle:\t\n'
-                '\tAnticipated Miles:\t\n'
-                'Dress Code:\t%s\n' % main.eventDress +
+                'Vehicle:\t\t\n'
+                '\tAnticipated Miles:   \n'
+                'Dress Code:\t\t%s\n' % main.eventDress +
                 'Invoice Number:\t%s\n\n' % main.notesInv +
-                'Staff Notes:\t%s' % main.notesNotes
+                'Staff Notes:\n\t%s' % main.notesNotes
             )
         if docType == 'Pack List':
             file_handler.write(
@@ -80,7 +80,7 @@ def createFile(fileName, docType):
             )
         if docType == 'Contract':
             file_handler.write(
-                'Name:   %s\t' % main.clientName +
+                'Name:   %s\t\t' % main.clientName +
                 'Mailing Address:   \n' +
                 'Phone:   %s\t' % main.clientPhone +
                 'E-Mail:   %s\n\n' % main.clientEmail +
@@ -94,7 +94,7 @@ def createFile(fileName, docType):
                 '3.\tANDX Ent. is not liable for any complications outside their control, including power interruptions, crowd control, or any other similar reason.\n' +
                 '4.\t%s is also responsible for damage to property of ANDX Ent. at event. Charges from damaged equipment will be made by ANDX Ent. and be known to %s by the end of the event.\n' % (main.clientName, main.clientName) +
                 '5.\tIf there is any breach of this agreement by ANDX Ent., the maximum amount of damages that can be awarded to %s, including attorney fees and costs, shall be the total amount paid to ANDX Ent.\n' % main.clientName +
-                '6.\tClient will be charged $40.00 for any returned checks.\n' +
+                '6.\t%s will be charged $40.00 for any returned checks.\n' % main.clientName +
                 '7.\tANDX Ent. will provide the following:\n\n%s\n\n' % main.packageChoice +
                 '8.\tOther requirements from our client:\n\n\n' +
 

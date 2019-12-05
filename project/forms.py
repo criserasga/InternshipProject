@@ -5,37 +5,37 @@
 from django import forms
 
 PACKAGES = [
-    'x1 Speaker\nx1 Speaker Stand\nx1 Wired Mic\nx1 8-Channel Mixer\nNecessary Cables and Small Cable Tote',
-    'x2 Speakers\nx2 Speaker Stands\nx1 Wireless Mic\nx1 Wired Mic\nx1 8-Channel Mixer\nNecessary Cables and Small Cable Tote',
-    'x3 Speakers\nx3 Speaker Stands\nx2 Wireless Mics\nx1 Wired Mic\nx1 Ui24R\nx1 iPad\nNecessary Cables and Medium/Large Cable Tote',
-    'x3 Speakers\nx3 Speaker Stands\nx2 Wireless Mics\nx1 Wired Mic\nx1 Lavalier\nx1 Ui24R\nx1 iPad\nNecessary Cables and Medium/Large Cable Tote',
-    'x4 Speakers\nx4 Speaker Stands\nx2 Wireless Mics\nx1 Ui24R Mixer\nx1 iPad\nNecessary Cables and Medium/Large Cable Tote',
-    'x4 Speakers\nx4 Speaker Stands\nx2 Wireless Mics\nx1 Lavalier\nx1 Ui24R\nx1 iPad\nNecessary Cables and Medium/Large Cable Tote',
-    'x2-x4 VRX Speakers\nx1-x2 Subwoofer(s)\nx2 Speaker Stands\nx4-x6 Wireless Mics\nx1 Amp Rack\nx1 Ui24R (or SQ-6)\nSpeakon Cable Tote',
-    'x1 DJ Controller\nx1 Wireless Mic',
-    'x2 70" TVs\nx2 TV Frames\nx2 8\' Truss\nx2 Flat Baseplates\nx1 Laptop\n1 Presentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
-    'x2 70" TVs\nx2 TV Frames\nx2 8\' Truss\nx1 32" TV\nx2 Flat Baseplates\nx1 Laptop\n1 Presentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
-    'x3 70" TVs\nx3 TV Frames\nx3 8\' Truss\nx3 Flat Baseplates\nx1 Laptop\n1 Presentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
-    'x3 70" TVs\nx3 TV Frames\nx3 8\' Truss\nx1 32" TV\nx3 Flat Baseplates\nx1 Laptop\n1 Presentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
-    'x4 70" TVs\nx4 TV Frames\nx4 8\' Truss\nx4 Flat Baseplates\nx1 Laptop\n1 Presentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
-    'x4 70" TVs\nx4 TV Frames\nx4 8\' Truss\nx1 32" TV\nx4 Flat Baseplates\nx1 Laptop\n1 Presentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
-    'x4 SDI Cables\nBlack Magic Adapters',
-    'x2 Speakers\nx2 Speaker Stands\nx2 Wireless Mics\nx1 Computer\nPresentation Clicker\nx1 10\' Screen\nx1 Projector\nx1 Ui24R\nx1 iPad\nNecessary Cables',
-    'x2 Speakers\nx2 Speaker Stands\nx4 Wireless Mics\nx4 Moving Heads\nx4 LED Par Cans\nx1 Computer\nx1 Presentation Clicker\nx1 14\' Screen\nx1 Projector\nx1 Ui24R\nx1 iPad\nNecessary Cables',
-    'x4 Speakers\nx4 Speaker Stands\nx1 Subwoofer\nx8 Wireless Mics\nx8 Moving Heads\nx8 LED Par Cans\nx9 Stage Decks\nx36 2\' Stage Legs\nx1 2\' Stage Stairs\nx20 Carpet Squares\nx2 Computers\nx1 Presentation Clicker\nx2 14\' Screens\nx2 Projectors\nx1 SQ-6\nStage Skirt\nNecessary Cables',
-    'x6 Speakers\nx6 Speaker Stands\nx2 Subwoofers\nx10 Wireless Mics\nx12 Moving Heads\nx12 LED Par Cans\nx24 Stage Decks\nx28 4\' Stage Frames\nx24 Short Frame Bars\nx24 Long Frame Bars\nx4 Single Nipples\nx16 Double Nipples\nx15 Quad Nipples\nx1 4\' Stage Stairs\nx37 Carpet Squares\nx2 Computers\nx1 Presentation Clicker\nx2 14\' Screens\nx2 Projectors\nx1 SQ-6\nStage Skirt\nNecessary Cables',
-    'x2 Speakers\nx2 Speaker Stands\nx1 Wireless Mic\nx1 10\' Screen\nx1 Projector\nx1 Computer\nx1 Presentation Clicker\nx1 Mixer\nNecessary Cables',
-    'x2 Speakers\nx2 Speaker Stands\nx4 Uplights\nx1 Wireless Mic\nx1 Lavalier\nx1 Ui24R\nx1 iPad\nx1 DJ Controller\nx2 70" TVs\nx2 TV Frames\nx2 8\' Truss\nx1 32" TV\nx2 Flat Baseplates\nx1 Laptop\n1 Presentation Clicker\nHDMI Tote\nNecessary Cables\nPins Ammo Case\nBrass Hammers',
-    'x4 Speakers\nx4 Speaker Stands\nx6 Uplights\nx2 Wireless Mics\nx2 Lavaliers\nx1 Ui24R\nx1 iPad\nx1 Tascam\nx1 DJ Controller\nx2 70" TVs\nx2 TV Frames\nx2 8\' Truss\nx1 32" TV\nx2 Flat Baseplates\nx1 Laptop\n1 Presentation Clicker\nHDMI Tote\nNecessary Cables\nPins Ammo Case\nBrass Hammers',
-    'x2 Speakers\nx2 Speaker Stands\nx1 Wireless Mic\nx1 DJ Controller\nNecessary Cables and Small Cable Tote',
-    'x2 Speakers\nx2 Speaker Stands\nx1 Single 18" Subwoofer\nx1 Wireless Mic\nx1 DJ Controller\nNecessary Cables and Small Cable Tote',
-    'x2 Speakers\nx2 Speaker Stands\nx1 Double 18" Subwoofer\nx1 Wireless Mic\nx1 DJ Controller\nx4 LED Par Cans\nx1 Lighting Controller\nx3 10\' Truss\nx2 X-plates\nx8 Carpet Squares\nDMX Tote\nNecessary Cables and Small Cable Tote',
-    'x2 Speakers\nx2 Speaker Stands\nx1 Double 18" Subwoofer\nx2 Wireless Mics\nx1 DJ Controller\nx2 Moving Heads\nx8 LED Par Cans\nx1 Lighting Controller\nx4 10\' Truss\nx2 X-plates\nx2 Stage Decks\nx8 2\' Stage Legs\nx1 2\' Stage Stairs\nx18 Carpet Squares\nStage Skirt\nDMX Tote\nNecessary Cables and Large Cable Tote',
-    'x2 QSC Speakers\nx2 Speaker Stands\nx1 Double 18" Subwoofer\nx2 Wireless Mics\nx1 DJ Controller\nx2 Lasers\nx6 Moving Heads\nx12 LED Par Cans\nx1 Fog Machine\nx1 Lighting Controller\nx4 10\' Truss\nx2 X-plates\nx2 Stage Decks\nx8 2\' Stage Legs\nx1 2\' Stage Stairs\nx18 Carpet Squares\nStage Skirt\nDMX Tote\nNecessary Cables and Large Cable Tote',
-    'x4 VRX Speakers\nx2 Speaker Stands\nx2 Passive Double 18" Subwoofers\nx1 Amp Rack\nx2 Wireless Mics\nx1 DJ Controller\nx2 Lasers\nx6 Moving Heads\nx12 LED Par Cans\nx1 Fog Machine\nx1 Lighting Controller\nx4 10\' Truss\nx2 X-plates\nx2 Stage Decks\nx8 2\' Stage Legs\nx1 2\' Stage Stairs\nx18 Carpet Squares\nStage Skirt\nDMX Tote\nNecessary Cables and Large Cable Tote',
-    'x2 Speakers\nx2 Speaker Stands\nx1 Wireless Mic\nx1 DJ Controller\n Necessary Cables and Small Cable Tote',
-    'x2 Speakers\nx2 Speaker Stands\nx1 Single 18" Subwoofer\nx1 Wireless Mic\nx1 Lavalier\nx1 DJ Controller\n Necessary Cables and Small Cable Tote',
-    'x4 Speakers\nx4 Speaker Stands\nx1 Double 18" Subwoofer\nx1 Wireless Mic\nx1 Lavalier\nx1 DJ Controller\n Necessary Cables and Large Cable Tote',
+    'x1\tSpeaker\nx1\tSpeaker Stand\nx1\tWired Mic\nx1\t8-Channel Mixer\nNecessary Cables and Small Cable Tote',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tWireless Mic\nx1\tWired Mic\nx1\t8-Channel Mixer\nNecessary Cables and Small Cable Tote',
+    'x3\tSpeakers\nx3\tSpeaker Stands\nx2\tWireless Mics\nx1\tWired Mic\nx1\tUi24R\nx1\tiPad\nNecessary Cables and Medium/Large Cable Tote',
+    'x3\tSpeakers\nx3\tSpeaker Stands\nx2\tWireless Mics\nx1\tWired Mic\nx1\tLavalier\nx1\tUi24R\nx1\tiPad\nNecessary Cables and Medium/Large Cable Tote',
+    'x4\tSpeakers\nx4\tSpeaker Stands\nx2\tWireless Mics\nx1\tUi24R Mixer\nx1\tiPad\nNecessary Cables and Medium/Large Cable Tote',
+    'x4\tSpeakers\nx4\tSpeaker Stands\nx2\tWireless Mics\nx1\tLavalier\nx1\tUi24R\nx1\tiPad\nNecessary Cables and Medium/Large Cable Tote',
+    'x2-x4\tVRX Speakers\nx1-x2\tSubwoofer(s)\nx2\tSpeaker Stands\nx4-x6\tWireless Mics\nx1\tAmp Rack\nx1\tUi24R (or SQ-6)\nSpeakon Cable Tote',
+    'x1\tDJ Controller\nx1\tWireless Mic',
+    'x2\t70" TVs\nx2\tTV Frames\nx2\t8\' Truss\nx2\tFlat Baseplates\nx1\tLaptop\nx1\tPresentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
+    'x2\t70" TVs\nx2\tTV Frames\nx2\t8\' Truss\nx1\t32" TV\nx2\tFlat Baseplates\nx1\tLaptop\nx1\tPresentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
+    'x3\t70" TVs\nx3\tTV Frames\nx3\t8\' Truss\nx3\tFlat Baseplates\nx1\tLaptop\nx1\tPresentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
+    'x3\t70" TVs\nx3\tTV Frames\nx3\t8\' Truss\nx1\t32" TV\nx3\tFlat Baseplates\nx1\tLaptop\nx1\tPresentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
+    'x4\t70" TVs\nx4\tTV Frames\nx4\t8\' Truss\nx4\tFlat Baseplates\nx1\tLaptop\nx1\tPresentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
+    'x4\t70" TVs\nx4\tTV Frames\nx4\t8\' Truss\nx1\t32" TV\nx4\tFlat Baseplates\nx1\tLaptop\nx1\tPresentation Clicker\nHDMI Tote\nPins Ammo Case\nBrass Hammers',
+    'x4\tSDI Cables\nBlack Magic Adapters',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx2\tWireless Mics\nx1\tComputer\nPresentation Clicker\nx1\t10\' Screen\nx1\tProjector\nx1\tUi24R\nx1\tiPad\nNecessary Cables',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx4\tWireless Mics\nx4\tMoving Heads\nx4\tLED Par Cans\nx1\tComputer\nx1\tPresentation Clicker\nx1\t14\' Screen\nx1\tProjector\nx1\tUi24R\nx1\tiPad\nNecessary Cables',
+    'x4\tSpeakers\nx4\tSpeaker Stands\nx1\tSubwoofer\nx8\tWireless Mics\nx8\tMoving Heads\nx8\tLED Par Cans\nx9\tStage Decks\nx36\t2\' Stage Legs\nx1\t2\' Stage Stairs\nx20\tCarpet Squares\nx2\tComputers\nx1\tPresentation Clicker\nx2\t14\' Screens\nx2\tProjectors\nx1\tSQ-6\nStage Skirt\nNecessary Cables',
+    'x6\tSpeakers\nx6\tSpeaker Stands\nx2\tSubwoofers\nx10\tWireless Mics\nx12\tMoving Heads\nx12\tLED Par Cans\nx24\tStage Decks\nx28\t4\' Stage Frames\nx24\tShort Frame Bars\nx24\tLong Frame Bars\nx4\tSingle Nipples\nx16\tDouble Nipples\nx15\tQuad Nipples\nx1\t4\' Stage Stairs\nx37\tCarpet Squares\nx2\tComputers\nx1\tPresentation Clicker\nx2\t14\' Screens\nx2\tProjectors\nx1\tSQ-6\nStage Skirt\nNecessary Cables',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tWireless Mic\nx1\t10\' Screen\nx1\tProjector\nx1\tComputer\nx1\tPresentation Clicker\nx1\tMixer\nNecessary Cables',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx4\tUplights\nx1\tWireless Mic\nx1\tLavalier\nx1\tUi24R\nx1\tiPad\nx1\tDJ Controller\nx2\t70" TVs\nx2\tTV Frames\nx2\t8\' Truss\nx1\t32" TV\nx2\tFlat Baseplates\nx1\tLaptop\n1 Presentation Clicker\nHDMI Tote\nNecessary Cables\nPins Ammo Case\nBrass Hammers',
+    'x4\tSpeakers\nx4\tSpeaker Stands\nx6\tUplights\nx2\tWireless Mics\nx2\tLavaliers\nx1\tUi24R\nx1\tiPad\nx1\tTascam\nx1\tDJ Controller\nx2\t70" TVs\nx2\tTV Frames\nx2\t8\' Truss\nx1\t32" TV\nx2\tFlat Baseplates\nx1\tLaptop\n1 Presentation Clicker\nHDMI Tote\nNecessary Cables\nPins Ammo Case\nBrass Hammers',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tWireless Mic\nx1\tDJ Controller\nNecessary Cables and Small Cable Tote',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tSingle 18" Subwoofer\nx1\tWireless Mic\nx1\tDJ Controller\nNecessary Cables and Small Cable Tote',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tDouble 18" Subwoofer\nx1\tWireless Mic\nx1\tDJ Controller\nx4\tLED Par Cans\nx1\tLighting Controller\nx3\t10\' Truss\nx2\tX-plates\nx8\tCarpet Squares\nDMX Tote\nNecessary Cables and Small Cable Tote',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tDouble 18" Subwoofer\nx2\tWireless Mics\nx1\tDJ Controller\nx2\tMoving Heads\nx8\tLED Par Cans\nx1\tLighting Controller\nx4\t10\' Truss\nx2\tX-plates\nx2\tStage Decks\nx8\t2\' Stage Legs\nx1\t2\' Stage Stairs\nx18\tCarpet Squares\nStage Skirt\nDMX Tote\nNecessary Cables and Large Cable Tote',
+    'x2\tQSC Speakers\nx2\tSpeaker Stands\nx1\tDouble 18" Subwoofer\nx2\tWireless Mics\nx1\tDJ Controller\nx2\tLasers\nx6\tMoving Heads\nx12\tLED Par Cans\nx1\tFog Machine\nx1\tLighting Controller\nx4\t10\' Truss\nx2\tX-plates\nx2\tStage Decks\nx8\t2\' Stage Legs\nx1\t2\' Stage Stairs\nx18\tCarpet Squares\nStage Skirt\nDMX Tote\nNecessary Cables and Large Cable Tote',
+    'x4\tVRX Speakers\nx2\tSpeaker Stands\nx2\tPassive Double 18" Subwoofers\nx1\tAmp Rack\nx2\tWireless Mics\nx1\tDJ Controller\nx2\tLasers\nx6\tMoving Heads\nx12\tLED Par Cans\nx1\tFog Machine\nx1\tLighting Controller\nx4\t10\' Truss\nx2\tX-plates\nx2\tStage Decks\nx8\t2\' Stage Legs\nx1\t2\' Stage Stairs\nx18\tCarpet Squares\nStage Skirt\nDMX Tote\nNecessary Cables and Large Cable Tote',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tWireless Mic\nx1\tDJ Controller\n Necessary Cables and Small Cable Tote',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tSingle 18" Subwoofer\nx1\tWireless Mic\nx1\tLavalier\nx1\tDJ Controller\n Necessary Cables and Small Cable Tote',
+    'x4\tSpeakers\nx4\tSpeaker Stands\nx1\tDouble 18" Subwoofer\nx1\tWireless Mic\nx1\tLavalier\nx1\tDJ Controller\n Necessary Cables and Large Cable Tote',
 ]
 
 CHOICES = [
@@ -85,7 +85,7 @@ class SalesSheet(forms.Form):
         help_text='Are we sponsors for this event?', required=False)
     event_date = forms.DateField(label='Event Date', 
         input_formats=['%Y-%m-%d'], help_text='YYYY-MM-DD')
-    event_time = forms.TimeField(label='Event Time', 
+    event_time = forms.TimeField(label='Event Start Time', 
         input_formats=['%H:%M'], help_text='HH:MM')
     event_end = forms.TimeField(label='Event End Time', 
         input_formats=['%H:%M'], help_text='HH:MM')
@@ -109,7 +109,7 @@ class SalesSheet(forms.Form):
         help_text='Who made the sale?')
     notes_inv = forms.IntegerField(label='Estimate/Invoice Number')
     notes_date = forms.DateField(label='Today\'s Date', 
-        input_formats=['%Y-%m-%d'])
+        input_formats=['%Y-%m-%d'], help_text='YYYY-MM-DD')
     notes_next = forms.CharField(label='Next Step', 
         help_text='What is the next step for this client?', required=False)
     notes_notes = forms.CharField(label='Additional Notes', 
