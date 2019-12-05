@@ -110,7 +110,7 @@ class SalesSheet(forms.Form):
         help_text='Who made the sale?')
     notes_inv = forms.IntegerField(label='Estimate/Invoice Number')
     notes_date = forms.DateField(label='Today\'s Date', 
-        input_formats=['%m/%d/%y'], default=datetime.today())
+        input_formats=['%m/%d/%y'], help_text='MM/DD/YY')
     notes_next = forms.CharField(label='Next Step', 
         help_text='What is the next step for this client?', required=False)
     notes_notes = forms.CharField(label='Additional Notes', 
