@@ -3,6 +3,7 @@
 # 
 
 from django import forms
+from datetime import datetime
 
 PACKAGES = [
     'x1\tSpeaker\nx1\tSpeaker Stand\nx1\tWired Mic\nx1\t8-Channel Mixer\nNecessary Cables and Small Cable Tote',
@@ -84,7 +85,7 @@ class SalesSheet(forms.Form):
     event_sponsor = forms.BooleanField(label='Sponsorship', 
         help_text='Are we sponsors for this event?', required=False)
     event_date = forms.DateField(label='Event Date', 
-        input_formats=['%Y-%m-%d'], help_text='YYYY-MM-DD')
+        input_formats=['%m/%d/%y'], help_text='MM/DD/YY')
     event_time = forms.TimeField(label='Event Start Time', 
         input_formats=['%I:%M %p'])
     event_end = forms.TimeField(label='Event End Time', 
@@ -109,7 +110,7 @@ class SalesSheet(forms.Form):
         help_text='Who made the sale?')
     notes_inv = forms.IntegerField(label='Estimate/Invoice Number')
     notes_date = forms.DateField(label='Today\'s Date', 
-        input_formats=['%Y-%m-%d'], help_text='YYYY-MM-DD')
+        input_formats=['%m/%d/%y'], default=datetime.today())
     notes_next = forms.CharField(label='Next Step', 
         help_text='What is the next step for this client?', required=False)
     notes_notes = forms.CharField(label='Additional Notes', 

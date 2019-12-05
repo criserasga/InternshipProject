@@ -65,7 +65,12 @@ def sales_sheet(request):
             main.notesNotes = form.cleaned_data.get('notes_notes')
 
             # Assign Calendar-Specific Variables
-            main.startDate = main.eventDate
+            # Reformat mm/dd/yy date input to required yyyy-mm-dd
+            def dateFix(date):
+                inDate = datetime.strptime(date, '%m/%d/%y')
+                outDate = datetime.strftime(inDate, '%Y-%m-%d')
+                return outDate
+            main.startDate = dateFix(main.eventDate)
             main.endDate = main.startDate
             # Reformat 12-hr input to 24-hr requirement for Calendar
             def timeFix(time):
