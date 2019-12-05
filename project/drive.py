@@ -80,10 +80,10 @@ def createFile(fileName, docType):
             )
         if docType == 'Contract':
             file_handler.write(
-                'Name:\t%s\n' % main.clientName +
-                'Mailing Address:\t\n' +
-                'Phone:\t%s\n' % main.clientPhone +
-                'E-Mail:\t%s\n\n' % main.clientEmail +
+                'Name:   %s\t' % main.clientName +
+                'Mailing Address:   \n' +
+                'Phone:   %s\t' % main.clientPhone +
+                'E-Mail:   %s\n\n' % main.clientEmail +
 
                 '%s has requested services for %s, from %s to %s. Location: %s\n' % (main.clientName, main.eventName, main.startTime, main.endTime, main.eventLocation) +
                 'The agreed upon amount to be paid will be $________\n' +
