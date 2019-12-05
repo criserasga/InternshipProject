@@ -49,7 +49,7 @@ eventLocation = None
 eventDress = None
 eventWifi = None
 eventDj = None
-eventMusic = None
+eventMusic = 'N/A'
 eventLights = None
 
 # 
@@ -58,8 +58,8 @@ eventLights = None
 notesRep = None
 notesInv = None
 notesDate = None
-notesNext = None
-notesNotes = None
+notesNext = 'N/A'
+notesNotes = 'N/A'
 
 # 
 # EQUIPMENT VARIABLES
