@@ -7,8 +7,8 @@ from . import main
 # 
 # LOCAL VARIABLES:
 # 
-folder_id = ''
-fileName = ''
+folder_id = None
+fileName = None
 mimeType = 'application/vnd.google-apps.document'
 file_queue = []
 
@@ -76,7 +76,7 @@ def createFile(fileName, docType):
             )
         if docType == 'Pack List':
             file_handler.write(
-                'Pack List\n\n%s' % main.packageChoice
+                'Equipment Pack List for %s\n\n%s' % (main.packageName, main.packageChoice)
             )
         if docType == 'Contract':
             file_handler.write(

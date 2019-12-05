@@ -26,7 +26,9 @@ SECRET_KEY = 'sun3#miowk!ma)*a2b^pz$gdxg466r)8n@b9lfijay!20r6+^h'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'a2x.herokuapp.com'
+    'a2x.herokuapp.com',
+    '127.0.0.1',
+    'localhost',
 ]
 
 

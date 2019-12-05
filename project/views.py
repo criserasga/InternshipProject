@@ -74,7 +74,7 @@ def sales_sheet(request):
 
             # Equipment Variables
             main.packageName = CHOICES[int(form.cleaned_data.get('package_choice'))]
-            print(main.packageName)
+            main.packageName = main.packageName[1]
             main.packageChoice = PACKAGES[(int(form.cleaned_data.get('package_choice'))-1)]
 
             # Make things work

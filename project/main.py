@@ -29,37 +29,37 @@ def drive():
 # 
 # CLIENT VARIABLES
 # 
-clientName = ''
-clientPhone = ''
-clientEmail = ''
-clientCompany = ''
+clientName = None
+clientPhone = None
+clientEmail = None
+clientCompany = None
 
 #
 # EVENT VARIABLES
 #
-eventName = ''
-eventType = ''
-eventSponsor = ''
-eventDate = ''
-eventTime = ''
-eventEnd = ''
-eventSetup = ''
-eventTakedown = ''
-eventLocation = ''
-eventDress = ''
-eventWifi = ''
-eventDj = ''
-eventMusic = ''
-eventLights = ''
+eventName = None
+eventType = None
+eventSponsor = None
+eventDate = None
+eventTime = None
+eventEnd = None
+eventSetup = None
+eventTakedown = None
+eventLocation = None
+eventDress = None
+eventWifi = None
+eventDj = None
+eventMusic = None
+eventLights = None
 
 # 
 # NOTES VARIABLES
 # 
-notesRep = ''
-notesInv = ''
-notesDate = ''
-notesNext = ''
-notesNotes = ''
+notesRep = None
+notesInv = None
+notesDate = None
+notesNext = None
+notesNotes = None
 
 # 
 # EQUIPMENT VARIABLES
@@ -70,10 +70,10 @@ packageChoice = None
 # 
 # CALENDAR-SPECIFIC VARIABLES
 # 
-startDate = ''
-endDate = ''
-startTime = ''
-endTime = ''
+startDate = None
+endDate = None
+startTime = None
+endTime = None
 gmtOffset = '-07:00'    # for GMT-7 or MDT
 
 # 
