@@ -5,29 +5,27 @@
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.http import HttpResponse
+from datetime import datetime
 from .forms import SalesSheet
 from .forms import CHOICES
 from .forms import PACKAGES
 from . import main
 
-# dictionary of packages
-#packages = {
-#    "go big or go home": "700 vertek 5000w\nsmall 200w sub",
-#    "next package": "stuf"
-#}
-
+#
+# 
+# 
 def sales_sheet(request):
     form = SalesSheet(request.POST or None)
 
     if request.method == "POST":
         if form.is_valid():
-            # Client Variables
+            # Assign Client Variables
             main.clientName = form.cleaned_data.get('client_name')
             main.clientPhone = form.cleaned_data.get('client_phone')
             main.clientEmail = form.cleaned_data.get('client_email')
             main.clientCompany = form.cleaned_data.get('client_company')
 
-            # Event Variables
+            # Assign Event Variables
             main.eventName = form.cleaned_data.get('event_name')
             main.eventType = form.cleaned_data.get('event_type')
             main.eventSponsor = form.cleaned_data.get('event_sponsor')
@@ -59,20 +57,25 @@ def sales_sheet(request):
             else:
                 main.eventLights = 'No'
             
-            # Notes Variables
+            # Assign Notes Variables
             main.notesRep = form.cleaned_data.get('notes_rep')
             main.notesInv = form.cleaned_data.get('notes_inv')
             main.notesDate = form.cleaned_data.get('notes_date')
             main.notesNext = form.cleaned_data.get('notes_next')
             main.notesNotes = form.cleaned_data.get('notes_notes')
 
-            # Calendar-Specific Variables
+            # Assign Calendar-Specific Variables
             main.startDate = main.eventDate
             main.endDate = main.startDate
-            main.startTime = main.eventTime
-            main.endTime = main.eventEnd
+            # Reformat 12-hr input to 24-hr requirement for Calendar
+            def timeFix(time):
+                inTime = datetime.strptime(time, '%I:%M %p')
+                outTime = datetime.strftime(inTime, '%H:%M')
+                return outTime
+            main.startTime = timeFix(main.eventTime)
+            main.endTime = timeFix(main.eventEnd)
 
-            # Equipment Variables
+            # Assign Equipment Variables
             main.packageName = CHOICES[int(form.cleaned_data.get('package_choice'))]
             main.packageName = main.packageName[1]
             main.packageChoice = PACKAGES[(int(form.cleaned_data.get('package_choice'))-1)]
