@@ -21,7 +21,7 @@ def dateFix(date):
 
 # Reformat 12-hr input to 24-hr requirement for Calendar
 def timeFix(time):
-    inTime = datetime.strptime(str(time), '%H:%M')
+    inTime = datetime.strptime(str(time), '%H:%M:%S')
     outTime = datetime.strftime(inTime, '%I:%M %p')
     return outTime
 
@@ -47,7 +47,7 @@ def createFile(fileName, docType):
         if docType == 'Sales Sheet':
             file_handler.write(
                 'Sales Sheet\n'
-                'Today\'s Date:\t%s\n\n' % main.notesDate +
+                'Today\'s Date:\t%s\n\n' % dateFix(main.notesDate) +
                 'Event Information:\n'
                 '\tName:\t\t%s\n' % main.eventName +
                 '\tDate:\t\t%s\n' % dateFix(main.eventDate) +
@@ -93,10 +93,10 @@ def createFile(fileName, docType):
             )
         if docType == 'Contract':
             file_handler.write(
-                'Name:   %s\t' % main.clientName +
-                'Mailing Address:   \n' +
-                'Phone:   %s\t' % main.clientPhone +
-                'E-Mail:   %s\n\n' % main.clientEmail +
+                'Name:\t\t%s\t' % main.clientName +
+                'Mailing Address:\t\n' +
+                'Phone:\t\t%s\t' % main.clientPhone +
+                'E-Mail:\t\t%s\n\n' % main.clientEmail +
 
                 '%s has requested services for %s, from %s to %s. Location: %s\n' % (main.clientName, main.eventName, timeFix(main.startTime), timeFix(main.endTime), main.eventLocation) +
                 'The agreed upon amount to be paid will be $________\n' +
