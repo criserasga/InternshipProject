@@ -64,6 +64,7 @@ notesNotes = ''
 # 
 # EQUIPMENT VARIABLES
 # 
+packageName = None
 packageChoice = None
 
 # 

@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import SalesSheet
+from .forms import CHOICES
 from .forms import PACKAGES
 from . import main
 
@@ -72,6 +73,8 @@ def sales_sheet(request):
             main.endTime = main.eventEnd
 
             # Equipment Variables
+            main.packageName = CHOICES[int(form.cleaned_data.get('package_choice'))]
+            print(main.packageName)
             main.packageChoice = PACKAGES[(int(form.cleaned_data.get('package_choice'))-1)]
 
             # Make things work

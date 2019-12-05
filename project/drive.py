@@ -80,7 +80,7 @@ def createFile(fileName, docType):
             )
         if docType == 'Contract':
             file_handler.write(
-                'Name:   %s\t\t' % main.clientName +
+                'Name:   %s\t' % main.clientName +
                 'Mailing Address:   \n' +
                 'Phone:   %s\t' % main.clientPhone +
                 'E-Mail:   %s\n\n' % main.clientEmail +
@@ -95,7 +95,7 @@ def createFile(fileName, docType):
                 '4.\t%s is also responsible for damage to property of ANDX Ent. at event. Charges from damaged equipment will be made by ANDX Ent. and be known to %s by the end of the event.\n' % (main.clientName, main.clientName) +
                 '5.\tIf there is any breach of this agreement by ANDX Ent., the maximum amount of damages that can be awarded to %s, including attorney fees and costs, shall be the total amount paid to ANDX Ent.\n' % main.clientName +
                 '6.\t%s will be charged $40.00 for any returned checks.\n' % main.clientName +
-                '7.\tANDX Ent. will provide the following:\n\n%s\n\n' % main.packageChoice +
+                '7.\tANDX Ent. will provide the following Event Package:\n\n%s\n\n' % main.packageName +
                 '8.\tOther requirements from our client:\n\n\n' +
 
                 'Signature of the Client (%s): ____________________________________' % main.clientName
