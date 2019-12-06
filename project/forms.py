@@ -85,7 +85,7 @@ class SalesSheet(forms.Form):
     event_sponsor = forms.BooleanField(label='Sponsorship', 
         help_text='Are we sponsoring this event?', required=False)
     event_date = forms.DateField(label='Event Date', 
-        input_formats=['%/%d/%y'], help_text='MM/DD/YY')
+        input_formats=['%m/%d/%y'], help_text='MM/DD/YY')
     event_time = forms.TimeField(label='Start Time', 
         input_formats=['%I:%M %p'])
     event_end = forms.TimeField(label='End Time', 
