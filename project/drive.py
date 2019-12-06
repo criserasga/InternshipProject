@@ -25,6 +25,13 @@ def timeFix(time):
     outTime = datetime.strftime(inTime, '%I:%M %p')
     return outTime
 
+# Put folder in either AX Events or AX Weddings
+def parentFolder(eventType):
+    if eventType == 'Wedding':
+        return parent_id = '0B72exbQJquNwaldoMjA3Smw4MWc'
+    else:
+        return parent_id = '1NHk9LsO47Eqg-AnTiV9yL0XPsA_W5KsL'
+
 # 
 # NAME:     createFolder
 # PURPOSE:  Creates a Google Drive folder from user's input
@@ -33,14 +40,7 @@ def createFolder(DRIVE):
     folder_metadata = {
         'name': main.eventName,
         'mimeType': 'application/vnd.google-apps.folder',
-        'permissions': {
-                'type': 'user',
-                'role': 'writer',
-                'emailAddress': [
-                    'andy@andx.us',
-                    'stephen@andx.us',
-                    'hayley@andx.us'
-                ]
+        'parents': [parentFolder(main.eventType)]
         }
     }
     file = DRIVE.files().create(supportsAllDrives=True, body=folder_metadata, fields='id').execute()
@@ -147,16 +147,8 @@ def moveFiles(DRIVE):
         metadata = {
             'name': filename,
             'parents': [folder_id],
-            'permissions': {
-                'type': 'user',
-                'role': 'writer',
-                'emailAddress': [
-                    'andy@andx.us',
-                    'stephen@andx.us',
-                    'hayley@andx.us',
-                ]
-            }
         }
         if mimeType:
             metadata['mimeType'] = mimeType
         result = DRIVE.files().create(supportsAllDrives=True, body=metadata, media_body=filename).execute()
+        addPermissions = DRIVE.permissions.create
