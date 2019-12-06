@@ -153,7 +153,7 @@ def moveFiles(DRIVE):
                 'emailAddress': [
                     'andy@andx.us',
                     'stephen@andx.us',
-                    'hayley@andx.us'
+                    'hayley@andx.us',
                 ]
             }
         }

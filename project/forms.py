@@ -83,7 +83,7 @@ class SalesSheet(forms.Form):
     event_name = forms.CharField(label='Event Name')
     event_type = forms.CharField(label='Event Type')
     event_sponsor = forms.BooleanField(label='Sponsorship', 
-        help_text='Are we sponsors for this event?', required=False)
+        help_text='Are we sponsoring this event?', required=False)
     event_date = forms.DateField(label='Event Date', 
         input_formats=['%m/%d/%y'], help_text='MM/DD/YY')
     event_time = forms.TimeField(label='Start Time', 
@@ -91,23 +91,21 @@ class SalesSheet(forms.Form):
     event_end = forms.TimeField(label='End Time', 
         input_formats=['%I:%M %p'])
     event_setup = forms.TimeField(label='Earliest Setup Time', 
-        help_text='When is the earliest we can come in for setup?', input_formats=['%I:%M %p'])
+        input_formats=['%I:%M %p'])
     event_takedown = forms.TimeField(label='Latest Takedown Time', 
-        help_text='When is the latest we have to be out for takedown?', input_formats=['%I:%M %p'])
+        input_formats=['%I:%M %p'])
     event_location = forms.CharField(label='Event Location')
-    event_dress = forms.CharField(label='Event Dress Code', 
-        help_text='How well should we dress for the event?')
+    event_dress = forms.CharField(label='Event Dress Code')
     event_wifi = forms.BooleanField(label='Wi-Fi',
-        help_text='Is Wi-Fi available to us?', required=False)
+        help_text='Is Wi-Fi available?', required=False)
     event_dj = forms.BooleanField(label='DJ Requested', 
-        help_text='Is a DJ needed for this event?', required=False)
+        help_text='Is a DJ needed?', required=False)
     event_music = forms.CharField(label='Music Type', 
         help_text='What kind of music does the event need?', required=False)
     event_lights = forms.BooleanField(label='Event Lighting', 
-        help_text='Do we need to bring lighting at the event?', required=False)
+        help_text='Do we need to bring lighting?', required=False)
     
-    notes_rep = forms.CharField(label='Sales Rep', 
-        help_text='Who made the sale?')
+    notes_rep = forms.CharField(label='Sales Rep')
     notes_inv = forms.IntegerField(label='Estimate/Invoice Number')
     notes_date = forms.DateField(label='Today\'s Date', 
         input_formats=['%m/%d/%y'], help_text='MM/DD/YY')
