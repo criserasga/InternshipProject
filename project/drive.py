@@ -32,9 +32,18 @@ def timeFix(time):
 def createFolder(DRIVE):
     folder_metadata = {
         'name': main.eventName,
-        'mimeType': 'application/vnd.google-apps.folder'
+        'mimeType': 'application/vnd.google-apps.folder',
+        'permissions': {
+                'type': 'user',
+                'role': 'writer',
+                'emailAddress': [
+                    'andy@andx.us',
+                    'stephen@andx.us',
+                    'hayley@andx.us'
+                ]
+        }
     }
-    file = DRIVE.files().create(body=folder_metadata, fields='id').execute()
+    file = DRIVE.files().create(supportsAllDrives=True, body=folder_metadata, fields='id').execute()
     global folder_id
     folder_id = file.get('id')
 
@@ -137,8 +146,17 @@ def moveFiles(DRIVE):
     for filename, mimeType in file_queue:
         metadata = {
             'name': filename,
-            'parents': [folder_id]
+            'parents': [folder_id],
+            'permissions': {
+                'type': 'user',
+                'role': 'writer',
+                'emailAddress': [
+                    'andy@andx.us',
+                    'stephen@andx.us',
+                    'hayley@andx.us'
+                ]
             }
+        }
         if mimeType:
             metadata['mimeType'] = mimeType
-        result = DRIVE.files().create(body=metadata, media_body=filename).execute()
+        result = DRIVE.files().create(supportsAllDrives=True, body=metadata, media_body=filename).execute()

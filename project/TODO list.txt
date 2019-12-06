@@ -6,9 +6,6 @@ Required Itmes:
 - create a name for the project
 
 Usability Items:
-- change time entries to accomodate 12 hr scale
-    - add PM somehow
-    - add 12:00 to time entries
 - find other variables that should be stored in config.py
 - switch over from .txt/.gdoc to .pdf
 - build proper unit tests in tests.py

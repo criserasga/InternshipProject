@@ -11,14 +11,18 @@ from . import main
 def createEvent(CALENDAR):
     EVENT = {
         'summary': main.eventName,
+        'location': main.eventLocation,
+        'description': 'A(n) %s for %s, of %s.' % (main.eventType, main.clientName, main.clientCompany),
         'start':  {'dateTime': '%sT%s%s' % (main.startDate, main.startTime, main.gmtOffset)},
         'end':    {'dateTime': '%sT%s%s' % (main.endDate, main.endTime, main.gmtOffset)},
-        'attendees': [
-            #{'email': 'friend1@example.com'},
-            #{'email': 'friend2@example.com'},
-        ],
     }
+    
+    def calendarType():
+        if main.eventType == 'Wedding':
+            return '00u6m1t6pjclfksguearou59ns@group.calendar.google.com'
+        else:
+            return 'sjci8ir4pifr9mskkrnev28q6s@group.calendar.google.com'
 
     # The entire calendar build request
-    e = CALENDAR.events().insert(calendarId='primary',
+    e = CALENDAR.events().insert(calendarId=calendarType(),
         sendNotifications=True, body=EVENT).execute()

@@ -91,9 +91,9 @@ class SalesSheet(forms.Form):
     event_end = forms.TimeField(label='End Time', 
         input_formats=['%I:%M %p'])
     event_setup = forms.TimeField(label='Earliest Setup Time', 
-        help_text='When is the earliest we can come in for setup?', input_formats=['%I:%M %p'], required=False)
+        help_text='When is the earliest we can come in for setup?', input_formats=['%I:%M %p'])
     event_takedown = forms.TimeField(label='Latest Takedown Time', 
-        help_text='When is the latest we have to be out for takedown?', input_formats=['%I:%M %p'], required=False)
+        help_text='When is the latest we have to be out for takedown?', input_formats=['%I:%M %p'])
     event_location = forms.CharField(label='Event Location')
     event_dress = forms.CharField(label='Event Dress Code', 
         help_text='How well should we dress for the event?')
