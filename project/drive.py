@@ -28,9 +28,11 @@ def timeFix(time):
 # Put folder in either AX Events or AX Weddings
 def parentFolder(eventType):
     if eventType == 'Wedding':
-        return parent_id = '0B72exbQJquNwaldoMjA3Smw4MWc'
+        parent_id = '0B72exbQJquNwaldoMjA3Smw4MWc'
     else:
-        return parent_id = '1NHk9LsO47Eqg-AnTiV9yL0XPsA_W5KsL'
+        parent_id = '1NHk9LsO47Eqg-AnTiV9yL0XPsA_W5KsL'
+    
+    return parent_id
 
 # 
 # NAME:     createFolder
@@ -40,10 +42,10 @@ def createFolder(DRIVE):
     folder_metadata = {
         'name': main.eventName,
         'mimeType': 'application/vnd.google-apps.folder',
-        'parents': [parentFolder(main.eventType)]
-        }
+        'parents': [parentFolder(main.eventType)],
     }
     file = DRIVE.files().create(supportsAllDrives=True, body=folder_metadata, fields='id').execute()
+    folderPermissions = DRIVE.permissions.create(type='user', role='writer', emailAddress=['andy@andx.us', 'james@andx.us', 'stephen@andx.us', 'hayley@andx.us'])
     global folder_id
     folder_id = file.get('id')
 
@@ -151,4 +153,4 @@ def moveFiles(DRIVE):
         if mimeType:
             metadata['mimeType'] = mimeType
         result = DRIVE.files().create(supportsAllDrives=True, body=metadata, media_body=filename).execute()
-        addPermissions = DRIVE.permissions.create
+        filePermissions = DRIVE.permissions.create(type='user', role='writer', emailAddress=['andy@andx.us', 'james@andx.us', 'stephen@andx.us', 'hayley@andx.us'])
