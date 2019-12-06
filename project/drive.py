@@ -45,7 +45,6 @@ def createFolder(DRIVE):
         'parents': [parentFolder(main.eventType)],
     }
     file = DRIVE.files().create(supportsAllDrives=True, body=folder_metadata, fields='id').execute()
-    folderPermissions = DRIVE.permissions.create(type='user', role='writer', emailAddress=['andy@andx.us', 'james@andx.us', 'stephen@andx.us', 'hayley@andx.us'])
     global folder_id
     folder_id = file.get('id')
 
@@ -153,4 +152,3 @@ def moveFiles(DRIVE):
         if mimeType:
             metadata['mimeType'] = mimeType
         result = DRIVE.files().create(supportsAllDrives=True, body=metadata, media_body=filename).execute()
-        filePermissions = DRIVE.permissions.create(type='user', role='writer', emailAddress=['andy@andx.us', 'james@andx.us', 'stephen@andx.us', 'hayley@andx.us'])
