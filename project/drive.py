@@ -147,15 +147,15 @@ def moveFiles(DRIVE):
         metadata = {
             'name': filename,
             'parents': [folder_id],
-            # 'permissions': {
-            #     'type': 'user',
-            #     'role': 'writer',
-            #     'emailAddress': [
-            #         'andy@andx.us',
-            #         'stephen@andx.us',
-            #         'hayley@andx.us',
-            #     ]
-            # }
+            'permissions': {
+                'type': 'user',
+                'role': 'writer',
+                'emailAddress': [
+                    'andy@andx.us',
+                    'stephen@andx.us',
+                    'hayley@andx.us',
+                ]
+            }
         }
         if mimeType:
             metadata['mimeType'] = mimeType
