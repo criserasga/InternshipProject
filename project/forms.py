@@ -85,7 +85,7 @@ class SalesSheet(forms.Form):
     event_sponsor = forms.BooleanField(label='Sponsorship', 
         help_text='Are we sponsoring this event?', required=False)
     event_date = forms.DateField(label='Event Date', 
-        input_formats=['%m/%d/%y'], help_text='MM/DD/YY')
+        input_formats=['%m/%d/%y'])
     event_time = forms.TimeField(label='Start Time', 
         input_formats=['%I:%M %p'])
     event_end = forms.TimeField(label='End Time', 
@@ -108,7 +108,7 @@ class SalesSheet(forms.Form):
     notes_rep = forms.CharField(label='Sales Rep')
     notes_inv = forms.IntegerField(label='Estimate/Invoice Number')
     notes_date = forms.DateField(label='Today\'s Date', 
-        input_formats=['%m/%d/%y'], help_text='MM/DD/YY')
+        input_formats=['%m/%d/%y'])
     notes_next = forms.CharField(label='Next Step', 
         help_text='What is the next step for this client?', required=False)
     notes_notes = forms.CharField(label='Additional Notes', 
