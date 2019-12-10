@@ -9,7 +9,6 @@ from datetime import datetime
 # LOCAL VARIABLES:
 # 
 folder_id = None
-main.folderId = folder_id
 file_id = None
 fileName = None
 mimeType = 'application/vnd.google-apps.document'
@@ -49,6 +48,7 @@ def createFolder(DRIVE):
     file = DRIVE.files().create(supportsAllDrives=True, body=folder_metadata, fields='id').execute()
     global folder_id
     folder_id = file.get('id')
+    main.folderId = folder_id
 
 # 
 # NAME:     createFile

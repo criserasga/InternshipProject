@@ -18,8 +18,8 @@ def createEvent(CALENDAR):
     }
     
     def calendarType():
-        if main.eventType == 'Wedding':
-            return '00u6m1t6pjclfksguearou59ns@group.calendar.google.com'
+        if main.eventType == 'Rental':
+            return 'andx.us_96tc1dm6kd2a290gf7bjctjors@group.calendar.google.com'
         else:
             return 'sjci8ir4pifr9mskkrnev28q6s@group.calendar.google.com'
 
