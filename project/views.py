@@ -77,6 +77,7 @@ def sales_sheet(request):
             # Make things work
             main.drive()
             main.calendar()
+            main.mail()
             return redirect('submit')
     else:
         return render(request, "project/form.html", {'form': form})

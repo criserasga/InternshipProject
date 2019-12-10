@@ -43,7 +43,7 @@ CHOICES = [
     (0, '-- Select One --'),
     (1, '1 Speaker Package'),
     (2, '2 Speaker Package'),
-    (2, '3 Speaker Package'),
+    (3, '3 Speaker Package'),
     (4, '3 Speaker Package w/ Lav'),
     (5, '4 Speaker Package'),
     (6, '4 Speaker Package w/ Lav'),
@@ -74,6 +74,13 @@ CHOICES = [
     (29, 'Wedding Package: Make My Day'),
 ]
 
+DRESS = [
+    (0, '-- Select One --'),
+    ('Casual', 'Casual'),
+    ('Business Casual', 'Business Casual'),
+    ('Formal', 'Formal'),
+]
+
 class SalesSheet(forms.Form):
     client_name = forms.CharField(label='Client Name')
     client_phone = forms.CharField(label='Client Phone Number')
@@ -95,7 +102,8 @@ class SalesSheet(forms.Form):
     event_takedown = forms.TimeField(label='Latest Takedown Time', 
         input_formats=['%I:%M %p'])
     event_location = forms.CharField(label='Event Location')
-    event_dress = forms.CharField(label='Event Dress Code')
+    event_dress = forms.ChoiceField(label='Event Dress Code',
+        widget=forms.Select, choices=DRESS)
     event_wifi = forms.BooleanField(label='Wi-Fi',
         help_text='Is Wi-Fi available?', required=False)
     event_dj = forms.BooleanField(label='DJ Requested', 

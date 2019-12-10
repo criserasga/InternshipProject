@@ -9,6 +9,8 @@ from datetime import datetime
 # LOCAL VARIABLES:
 # 
 folder_id = None
+main.folderId = folder_id
+file_id = None
 fileName = None
 mimeType = 'application/vnd.google-apps.document'
 file_queue = []
@@ -58,16 +60,21 @@ def createFile(fileName, docType):
             file_handler.write(
                 'Sales Sheet\n'
                 'Today\'s Date:\t%s\n\n' % dateFix(main.notesDate) +
+                'Client Information:\n'
+                '\tName:\t\t\t\t%s\n' % main.clientName +
+                '\tPhone:\t\t\t%s\n' % main.clientPhone +
+                '\tE-Mail:\t\t\t\t%s\n' % main.clientEmail +
+                '\tCompany/Organization:\t%s\n' % main.clientCompany +
                 'Event Information:\n'
                 '\tName:\t\t%s\n' % main.eventName +
                 '\tDate:\t\t%s\n' % dateFix(main.eventDate) +
                 '\tType:\t\t%s\n' % main.eventType +
+                '\t\tSponsorship:\t\t%s\n' % main.eventSponsor +
                 '\tTime:\t\t%s\n' % timeFix(main.eventTime) +
                 '\t\tEarliest Setup:\t\t%s\n' % timeFix(main.eventSetup) +
                 '\t\tLatest Takedown:\t%s\n' % timeFix(main.eventTakedown) +
                 '\tLocation:\t%s\n\n' % main.eventLocation +
                 'Information for Us:\n'
-                '\tSponsorship:\t\t%s\n' % main.eventSponsor +
                 '\tDress Code:\t\t%s\n' % main.eventDress +
                 '\tWi-Fi Availability:\t%s\n' % main.eventWifi +
                 '\tDJ Requested:\t%s\n' % main.eventDj +
@@ -112,7 +119,7 @@ def createFile(fileName, docType):
                 'The agreed upon amount to be paid will be $________\n' +
                 '* If overtime is desired by client the charge is due in advance of overtime ($35 per hour)\n\n' +
 
-                '1.\tA deposit is required for preparations for the event and to secure services for the date listed above. The amount shall be paid in the amount of $________ when signing this agreement. If %s cancels at any time before the date of the event, they can transfer the fee to another event within one (1) year, providing the new date is acceptable and available to ANDX Ent. ANDX Ent. may also choose to refund %s zero, part, or full of their deposit.\n' % (main.clientName, main.clientName) +
+                '1.\tA deposit of one-half (1/2) the total price is required for preparations for the event and to secure services for the date listed above. The amount shall be paid in the amount of $________ when signing this agreement. If %s cancels at any time before the date of the event, they can transfer the fee to another event within one (1) year, providing the new date is acceptable and available to ANDX Ent. ANDX Ent. may also choose to refund %s zero, part, or full of their deposit.\n' % (main.clientName, main.clientName) +
                 '2.\tThe remaining balance of $________ shall be paid by %s before said event ANDX Ent., at its sole option, can terminate this agreement and refuse to provide said services if payment of the remaining balance is not made in a timely manner (minimum of one week prior to event). Checks will be mailed to: 1582 N. Holmes Ave., Idaho Falls, ID, 83401\n' % main.clientName +
                 '3.\tANDX Ent. is not liable for any complications outside their control, including power interruptions, crowd control, or any other similar reason.\n' +
                 '4.\t%s is also responsible for damage to property of ANDX Ent. at event. Charges from damaged equipment will be made by ANDX Ent. and be known to %s by the end of the event.\n' % (main.clientName, main.clientName) +
@@ -151,4 +158,4 @@ def moveFiles(DRIVE):
         }
         if mimeType:
             metadata['mimeType'] = mimeType
-        result = DRIVE.files().create(supportsAllDrives=True, body=metadata, media_body=filename).execute()
+        file = DRIVE.files().create(supportsAllDrives=True, body=metadata, media_body=filename).execute()

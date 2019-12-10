@@ -5,26 +5,17 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from . import config
+from . import drive
 from .drive import createFolder
 from .drive import queueFile
 from .drive import moveFiles
 from .calendar import createEvent
+from .gmail import CreateMessage
+from .gmail import SendMessage
 from . import calendar
 import pickle
 import os
 
-def calendar():
-    authorization = auth('calendar')
-    createEvent(authorization)
-
-def drive():
-    authorization = auth('drive')
-    createFolder(authorization)
-    queueFile(authorization, 'Sales Sheet')
-    queueFile(authorization, 'Event Sheet')
-    queueFile(authorization, 'Pack List')
-    queueFile(authorization, 'Contract')
-    moveFiles(authorization)
 
 # 
 # CLIENT VARIABLES
@@ -77,6 +68,11 @@ endTime = None
 gmtOffset = '-07:00'    # for GMT-7 or MDT
 
 # 
+# DRIVE-SPECIFIC VARIABLES
+# 
+folderId = None
+
+# 
 # NAME:     auth
 # PURPOSE:  Grants authorization tokens toward Google APIs 
 # 
@@ -100,5 +96,28 @@ def auth(service):
         with open('googleToken.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
-    authentication = build(service, 'v3', credentials=creds)
+    if service == 'gmail':
+        authentication = build(service, 'v1', credentials=creds)
+    else:
+        authentication = build(service, 'v3', credentials=creds)
+    
     return authentication
+
+
+def calendar():
+    authorization = auth('calendar')
+    createEvent(authorization)
+
+def drive():
+    authorization = auth('drive')
+    createFolder(authorization)
+    queueFile(authorization, 'Sales Sheet')
+    queueFile(authorization, 'Event Sheet')
+    queueFile(authorization, 'Pack List')
+    queueFile(authorization, 'Contract')
+    moveFiles(authorization)
+
+def mail():
+    authorization = auth('gmail')
+    message = CreateMessage('cris@andx.us, mcerasga@hotmail.com', 'cris@andx.us', 'A new event was created', 'Please review the event documents here:\nhttps://drive.google.com/drive/folders/%s' % folderId)
+    SendMessage(authorization, 'me', message)
