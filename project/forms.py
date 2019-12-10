@@ -6,6 +6,7 @@ from django import forms
 from datetime import datetime
 
 PACKAGES = [
+    ''
     'x1\tSpeaker\nx1\tSpeaker Stand\nx1\tWired Mic\nx1\t8-Channel Mixer\nNecessary Cables and Small Cable Tote',
     'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tWireless Mic\nx1\tWired Mic\nx1\t8-Channel Mixer\nNecessary Cables and Small Cable Tote',
     'x3\tSpeakers\nx3\tSpeaker Stands\nx2\tWireless Mics\nx1\tWired Mic\nx1\tUi24R\nx1\tiPad\nNecessary Cables and Medium/Large Cable Tote',

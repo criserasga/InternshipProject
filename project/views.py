@@ -10,8 +10,9 @@ from .forms import CHOICES
 from .forms import PACKAGES
 from . import main
 
-#
 # 
+# NAME:     sales_sheet
+# PURPOSE:  Assign all main.py variables and executes Google APIs
 # 
 def sales_sheet(request):
     form = SalesSheet(request.POST or None)
@@ -72,7 +73,7 @@ def sales_sheet(request):
             # Assign Equipment Variables
             main.packageName = CHOICES[int(form.cleaned_data.get('package_choice'))]
             main.packageName = main.packageName[1]
-            main.packageChoice = PACKAGES[(int(form.cleaned_data.get('package_choice'))-1)]
+            main.packageChoice = PACKAGES[(int(form.cleaned_data.get('package_choice')))]
 
             # Make things work
             main.drive()
