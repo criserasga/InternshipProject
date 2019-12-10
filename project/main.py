@@ -119,5 +119,5 @@ def drive():
 
 def mail():
     authorization = auth('gmail')
-    message = CreateMessage('cris@andx.us, mcerasga@hotmail.com', 'cris@andx.us', 'A new event was created', 'Please review the event documents here:\nhttps://drive.google.com/drive/folders/%s' % folderId)
+    message = CreateMessage('hayley@andx.us, megan@andx.us', 'cris@andx.us', 'A new event was created', 'Please review the event documents here:\nhttps://drive.google.com/drive/folders/%s' % folderId)
     SendMessage(authorization, 'me', message)
