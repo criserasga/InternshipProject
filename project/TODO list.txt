@@ -2,16 +2,17 @@
 TODO List:
 
 Required Itmes:
-- send notifications for drive uploads
 - create a name for the project
+- switch over from .txt/.gdoc to .pdf
+    - format all documents
+    - insert ANDX logo
+- long-term client options
+    - master contract/agreement
+- event notifications for client
 
 Usability Items:
 - find other variables that should be stored in config.py
-- switch over from .txt/.gdoc to .pdf
 - build proper unit tests in tests.py
-
-Wants:
-- inventory warning
 
 Next Iterations:
 - integrate Intuit/QuickBooks
