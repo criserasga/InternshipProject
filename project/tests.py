@@ -8,6 +8,7 @@ from . import main
 # Expected Result: SUCCESS
 auth('calendar')
 auth('drive')
+auth('gmail')
 
 # Test auth() function
 # Expected Result: FAILURE
