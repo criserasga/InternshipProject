@@ -43,7 +43,7 @@ def createFolder(DRIVE):
     folder_metadata = {
         'name': main.eventName,
         'mimeType': 'application/vnd.google-apps.folder',
-        'parents': [parentFolder(main.eventType)],
+        # 'parents': [parentFolder(main.eventType)],
     }
     file = DRIVE.files().create(supportsAllDrives=True, body=folder_metadata, fields='id').execute()
     global folder_id
@@ -81,7 +81,7 @@ def createFile(fileName, docType):
                 '\tMusic Type:\t\t%s\n' % main.eventMusic +
                 '\tLighting:\t\t%s\n' % main.eventLights +
                 '\tNext Steps:\t\t%s\n' % main.notesNext +
-                '\tAdditional Notes:\t%s\n\n' % main.notesNotes +
+                '\tAdditional Notes:\n\n%s\n\n' % main.notesNotes +
                 'Sales Rep:\t%s' % main.notesRep
             )
         if docType == 'Event Sheet':
@@ -102,7 +102,7 @@ def createFile(fileName, docType):
                 '\tAnticipated Miles:   \n'
                 'Dress Code:\t\t%s\n' % main.eventDress +
                 'Invoice Number:\t%s\n\n' % main.notesInv +
-                'Staff Notes:\n\t%s' % main.notesNotes
+                'Staff Notes:\n\n%s' % main.notesNotes
             )
         if docType == 'Pack List':
             file_handler.write(

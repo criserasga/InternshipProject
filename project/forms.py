@@ -36,8 +36,9 @@ PACKAGES = [
     'x2\tQSC Speakers\nx2\tSpeaker Stands\nx1\tDouble 18" Subwoofer\nx2\tWireless Mics\nx1\tDJ Controller\nx2\tLasers\nx6\tMoving Heads\nx12\tLED Par Cans\nx1\tFog Machine\nx1\tLighting Controller\nx4\t10\' Truss\nx2\tX-plates\nx2\tStage Decks\nx8\t2\' Stage Legs\nx1\t2\' Stage Stairs\nx18\tCarpet Squares\nStage Skirt\nDMX Tote\nNecessary Cables and Large Cable Tote',
     'x4\tVRX Speakers\nx2\tSpeaker Stands\nx2\tPassive Double 18" Subwoofers\nx1\tAmp Rack\nx2\tWireless Mics\nx1\tDJ Controller\nx2\tLasers\nx6\tMoving Heads\nx12\tLED Par Cans\nx1\tFog Machine\nx1\tLighting Controller\nx4\t10\' Truss\nx2\tX-plates\nx2\tStage Decks\nx8\t2\' Stage Legs\nx1\t2\' Stage Stairs\nx18\tCarpet Squares\nStage Skirt\nDMX Tote\nNecessary Cables and Large Cable Tote',
     'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tWireless Mic\nx1\tDJ Controller\n Necessary Cables and Small Cable Tote',
-    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tSingle 18" Subwoofer\nx1\tWireless Mic\nx1\tLavalier\nx1\tDJ Controller\n Necessary Cables and Small Cable Tote',
-    'x4\tSpeakers\nx4\tSpeaker Stands\nx1\tDouble 18" Subwoofer\nx1\tWireless Mic\nx1\tLavalier\nx1\tDJ Controller\n Necessary Cables and Large Cable Tote',
+    'x2\tSpeakers\nx2\tSpeaker Stands\nx1\tSingle 18" Subwoofer\nx1\tWireless Mic\nx1\tLavalier\nx1\tDJ Controller\nNecessary Cables and Small Cable Tote',
+    'x4\tSpeakers\nx4\tSpeaker Stands\nx1\tDouble 18" Subwoofer\nx1\tWireless Mic\nx1\tLavalier\nx1\tDJ Controller\nNecessary Cables and Large Cable Tote',
+    ''
 ]
 
 CHOICES = [
@@ -71,8 +72,9 @@ CHOICES = [
     (27, 'DJ Package: Boom'),
     (28, 'DJ Package: Super Nova'),
     (29, 'Wedding Package: Good Time'),
-    (29, 'Wedding Package: Remember the Night'),
-    (29, 'Wedding Package: Make My Day'),
+    (30, 'Wedding Package: Remember the Night'),
+    (31, 'Wedding Package: Make My Day'),
+    (32, 'RENTAL')
 ]
 
 DRESS = [
@@ -120,7 +122,7 @@ class SalesSheet(forms.Form):
         input_formats=['%m/%d/%y'])
     notes_next = forms.CharField(label='Next Step', 
         help_text='What is the next step for this client?', required=False)
-    notes_notes = forms.CharField(label='Additional Notes', 
+    notes_notes = forms.CharField(label='Additional Notes/Rental Equipment', 
         widget=forms.Textarea, required=False)
 
     package_choice = forms.ChoiceField(label='Select Event Package', 

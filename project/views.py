@@ -73,11 +73,14 @@ def sales_sheet(request):
             # Assign Equipment Variables
             main.packageName = CHOICES[int(form.cleaned_data.get('package_choice'))]
             main.packageName = main.packageName[1]
-            main.packageChoice = PACKAGES[(int(form.cleaned_data.get('package_choice')))]
+            if (int(form.cleaned_data.get('package_choice'))) == 32:
+                main.packageChoice = main.notesNotes
+            else:
+                main.packageChoice = PACKAGES[(int(form.cleaned_data.get('package_choice')))]
 
             # Make things work
             main.drive()
-            main.calendar()
+            # main.calendar()
             main.mail()
             return redirect('submit')
     else:
