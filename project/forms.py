@@ -74,7 +74,7 @@ CHOICES = [
     (29, 'Wedding Package: Good Time'),
     (30, 'Wedding Package: Remember the Night'),
     (31, 'Wedding Package: Make My Day'),
-    (32, 'RENTAL')
+    (32, '-- Rental --')
 ]
 
 DRESS = [
@@ -122,8 +122,9 @@ class SalesSheet(forms.Form):
         input_formats=['%m/%d/%y'])
     notes_next = forms.CharField(label='Next Step', 
         help_text='What is the next step for this client?', required=False)
-    notes_notes = forms.CharField(label='Additional Notes/Rental Equipment', 
-        widget=forms.Textarea, required=False)
-
+    
     package_choice = forms.ChoiceField(label='Select Event Package', 
         widget=forms.Select, required=False, choices=CHOICES)
+        
+    notes_notes = forms.CharField(label='Additional Notes/Equipment', 
+        widget=forms.Textarea, required=False)
