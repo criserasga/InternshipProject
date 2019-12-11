@@ -43,7 +43,7 @@ def createFolder(DRIVE):
     folder_metadata = {
         'name': main.eventName,
         'mimeType': 'application/vnd.google-apps.folder',
-        # 'parents': [parentFolder(main.eventType)],
+        'parents': [parentFolder(main.eventType)],
     }
     file = DRIVE.files().create(supportsAllDrives=True, body=folder_metadata, fields='id').execute()
     global folder_id

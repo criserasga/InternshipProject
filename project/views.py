@@ -80,7 +80,7 @@ def sales_sheet(request):
 
             # Make things work
             main.drive()
-            # main.calendar()
+            main.calendar()
             main.mail()
             return redirect('submit')
     else:
