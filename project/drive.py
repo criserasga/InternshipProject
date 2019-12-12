@@ -43,7 +43,7 @@ def createFolder(DRIVE):
     folder_metadata = {
         'name': main.eventName,
         'mimeType': 'application/vnd.google-apps.folder',
-        # 'parents': [parentFolder(main.eventType)],
+        'parents': [parentFolder(main.eventType)],
     }
     file = DRIVE.files().create(supportsAllDrives=True, body=folder_metadata, fields='id').execute()
     global folder_id
@@ -128,7 +128,8 @@ def createFile(fileName, docType):
                 '7.\tANDX Ent. will provide the following Event Package:\n\n%s\n%s\n\n' % (main.packageName, main.notesNotes) +
                 '8.\tOther requirements from our client:\n\n\n' +
 
-                'Signature of the Client (%s): ____________________________________' % main.clientName
+                'Signature of the Client (%s): ____________________________________\n\n' % main.clientName +
+                'Signature of ANDX Ent. (%s): ____________________________________' % main.notesRep
             )
 
 # 
