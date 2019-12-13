@@ -9,6 +9,14 @@ from email.mime.text import MIMEText
 from apiclient import errors
 
 
+RECIPIENTS = [
+  'cris@andx.us',
+  'hayley@andx.us',
+  'megan@andx.us',
+  'stephen@andx.us',
+  'sales@andx.us',
+]
+
 def CreateMessage(sender, to, subject, message_text):
   """Create a message for an email.
 

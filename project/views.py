@@ -73,7 +73,7 @@ def sales_sheet(request):
             # Assign Equipment Variables
             main.packageName = CHOICES[int(form.cleaned_data.get('package_choice'))]
             main.packageName = main.packageName[1]
-            if (int(form.cleaned_data.get('package_choice'))) == 32:
+            if (int(form.cleaned_data.get('package_choice'))) == 33:
                 main.packageChoice = main.notesNotes
             else:
                 main.packageChoice = PACKAGES[(int(form.cleaned_data.get('package_choice')))]
