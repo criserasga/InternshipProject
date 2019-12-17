@@ -4,6 +4,7 @@
 
 from . import main
 from datetime import datetime
+from PIL import image
 
 # 
 # LOCAL VARIABLES:
@@ -13,6 +14,8 @@ file_id = None
 fileName = None
 mimeType = 'application/vnd.google-apps.document'
 file_queue = []
+imgName = 'andx.jpg'
+hex_content = None
 
 # Reformat mm/dd/yy date input to required yyyy-mm-dd
 def dateFix(date):
@@ -139,7 +142,7 @@ def createFile(fileName, docType):
 def queueFile(DRIVE, docType):
     temp_list = []
     global fileName
-    fileName = '%s %s.txt' % (main.eventName, docType)
+    fileName = '%s %s.rtf' % (main.eventName, docType)
     createFile(fileName, docType)
     temp_list.append(fileName)
     temp_list.append(mimeType)
