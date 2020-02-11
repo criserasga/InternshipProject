@@ -2,7 +2,7 @@
 # This file contains all functions necessary for Google's Drive API
 # 
 
-from . import main
+import main
 from datetime import datetime
 
 # 
@@ -161,4 +161,4 @@ def moveFiles(DRIVE):
         }
         if mimeType:
             metadata['mimeType'] = mimeType
-        file = DRIVE.files().create(supportsAllDrives=True, body=metadata, media_body=filename).execute()
+        DRIVE.files().create(supportsAllDrives=True, body=metadata, media_body=filename).execute()
