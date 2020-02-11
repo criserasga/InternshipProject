@@ -123,5 +123,3 @@ def mail():
         print(address)
         message = CreateMessage('cris@andx.us', address, 'A new event has been created', 'Please review the event documents here:\nhttps://drive.google.com/drive/folders/%s' % (folderId))
         SendMessage(authorization, 'me', message)
-    notification = CreateMessage('cris@andx.us', clientEmail, 'Your %s has been created' % (eventType), '%s,\n\nThis email is to let you know that your %s has been put into our calendar.\n\nWe are so excited to be working with you on this! Please let us know if you have any questions or concerns.\n\n\nThank you,\n\nANDX Entertainment\n(208) 534-5699\n1582 N. Holmes Ave\nIdaho Falls, ID 83401\nwww.andx.us' % (clientName, eventType))
-    SendMessage(authorization, 'me', notification)
