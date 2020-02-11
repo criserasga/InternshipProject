@@ -8,7 +8,6 @@ Required Itmes:
     - insert ANDX logo
 - long-term client options
     - master contract/agreement
-- event notifications for client
 
 Usability Items:
 - find other variables that should be stored in config.py
