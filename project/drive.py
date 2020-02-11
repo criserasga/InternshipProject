@@ -4,7 +4,6 @@
 
 from . import main
 from datetime import datetime
-from PIL import image
 
 # 
 # LOCAL VARIABLES:
