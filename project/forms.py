@@ -87,27 +87,27 @@ DRESS = [
 ]
 
 class SalesSheet(forms.Form):
-    client_name = forms.CharField(label='Client Name')
-    client_phone = forms.CharField(label='Client Phone Number')
-    client_email = forms.EmailField(label='Client E-Mail')
-    client_company = forms.CharField(label='Client Organization/Company')
+    client_name = forms.CharField(label='* Client Name')
+    client_phone = forms.CharField(label='* Client Phone Number')
+    client_email = forms.EmailField(label='* Client E-Mail')
+    client_company = forms.CharField(label='* Client Organization/Company')
     
-    event_name = forms.CharField(label='Event Name')
-    event_type = forms.CharField(label='Event Type')
+    event_name = forms.CharField(label='* Event Name')
+    event_type = forms.CharField(label='* Event Type')
     event_sponsor = forms.BooleanField(label='Sponsorship', 
         help_text='Are we sponsoring this event?', required=False)
-    event_date = forms.DateField(label='Event Date', 
-        input_formats=['%m/%d/%y'])
-    event_time = forms.TimeField(label='Start Time', 
-        input_formats=['%I:%M %p'])
-    event_end = forms.TimeField(label='End Time', 
-        input_formats=['%I:%M %p'])
+    event_date = forms.DateField(label='* Event Date', 
+        input_formats=['%m/%d/%y'], help_text='(MM/DD/YY)')
+    event_time = forms.TimeField(label='* Start Time', 
+        input_formats=['%I:%M %p'], help_text='(HH:MM AM/PM)')
+    event_end = forms.TimeField(label='* End Time', 
+        input_formats=['%I:%M %p'], help_text='(HH:MM AM/PM)')
     event_setup = forms.TimeField(label='Earliest Setup Time', 
-        input_formats=['%I:%M %p'])
+        input_formats=['%I:%M %p'], required=False)
     event_takedown = forms.TimeField(label='Latest Takedown Time', 
-        input_formats=['%I:%M %p'])
-    event_location = forms.CharField(label='Event Location')
-    event_dress = forms.ChoiceField(label='Event Dress Code',
+        input_formats=['%I:%M %p'], required=False)
+    event_location = forms.CharField(label='* Event Location')
+    event_dress = forms.ChoiceField(label='* Event Dress Code',
         widget=forms.Select, choices=DRESS)
     event_wifi = forms.BooleanField(label='Wi-Fi',
         help_text='Is Wi-Fi available?', required=False)
@@ -118,10 +118,10 @@ class SalesSheet(forms.Form):
     event_lights = forms.BooleanField(label='Event Lighting', 
         help_text='Do we need to bring lighting?', required=False)
     
-    notes_rep = forms.CharField(label='Sales Rep')
-    notes_inv = forms.IntegerField(label='Estimate/Invoice Number')
-    notes_date = forms.DateField(label='Today\'s Date', 
-        input_formats=['%m/%d/%y'])
+    notes_rep = forms.CharField(label='* Sales Rep')
+    notes_inv = forms.IntegerField(label='* Estimate/Invoice Number')
+    notes_date = forms.DateField(label='* Today\'s Date', 
+        input_formats=['%m/%d/%y'], help_text='(MM/DD/YY)')
     notes_next = forms.CharField(label='Next Step', 
         help_text='What is the next step for this client?', required=False)
     
